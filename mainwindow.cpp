@@ -41,11 +41,30 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
     }
 }
 
+void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton && ui->frame_topBar && ui->frame_topBar->geometry().contains(event->pos()))
+    {
+        if (isFullScreen())
+        {
+            showNormal();
+        }
+        else
+        {
+            showFullScreen();
+        }
+    }
+}
+
+
+
 void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 {
     Q_UNUSED(event);
     m_dragging = false;
 }
+
+
 
 
 MainWindow::~MainWindow()
