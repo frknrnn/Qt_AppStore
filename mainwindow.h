@@ -31,6 +31,7 @@ protected:
 private slots:
     void minimizeWindow();
     void exitApp();
+    void maximizeWindow();
 
 };
 #endif // MAINWINDOW_H
