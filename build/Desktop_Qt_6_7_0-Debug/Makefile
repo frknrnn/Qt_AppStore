@@ -785,7 +785,11 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_resources.cpp
 qrc_resources.cpp: ../../resources.qrc \
 		/home/furkan/Qt/6.7.0/gcc_64/libexec/rcc \
-		../../SampleSplash.jpeg
+		../../SampleSplash.jpeg \
+		../../icon_maximize.png \
+		../../x.png \
+		../../icon_minimize.png \
+		../../cil-x.png
 	/home/furkan/Qt/6.7.0/gcc_64/libexec/rcc -name resources ../../resources.qrc -o qrc_resources.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h
@@ -1204,7 +1208,8 @@ main.o: ../../main.cpp ../../mainwindow.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtimer.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qbasictimer.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QApplication \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qapplication.h
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qapplication.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/QScreen
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../main.cpp
 
 mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
@@ -1399,12 +1404,22 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QVariant \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QApplication \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qapplication.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QMenuBar \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qmenubar.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qmenu.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QStatusBar \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qstatusbar.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QWidget
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QFrame \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qframe.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlayout.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QPushButton \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QSpacerItem \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QWidget \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/QMouseEvent \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/QCursor \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../mainwindow.cpp
 
 qrc_resources.o: qrc_resources.cpp 

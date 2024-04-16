@@ -2,4 +2,10 @@
     <qresource prefix="/images">
         <file>SampleSplash.jpeg</file>
     </qresource>
+    <qresource prefix="/icons">
+        <file>cil-x.png</file>
+        <file>icon_minimize.png</file>
+        <file>x.png</file>
+        <file>icon_maximize.png</file>
+    </qresource>
 </RCC>

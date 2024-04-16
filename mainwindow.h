@@ -28,5 +28,9 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event) override;
     void mouseDoubleClickEvent(QMouseEvent *event) override;
 
+private slots:
+    void minimizeWindow();
+    void exitApp();
+
 };
 #endif // MAINWINDOW_H

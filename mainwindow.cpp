@@ -6,12 +6,16 @@
 #include <QDebug>
 
 
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow),m_dragging(false)
 {
     ui->setupUi(this);
+
+
+    //Button Connections
+    connect(ui->pushButton_minimize,&QPushButton::clicked,this,&MainWindow::minimizeWindow);
+    connect(ui->pushButton_exit,&QPushButton::clicked,this,&MainWindow::exitApp);
 
 }
 
@@ -21,7 +25,7 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
     {
         m_dragging = true;
         m_dragStartPosition = QCursor::pos();
-        //qDebug() << "Mouse Position:" << m_dragStartPosition;
+        qDebug() << "Mouse Position:" << m_dragStartPosition;
     }
     else
     {
@@ -37,7 +41,7 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
         QPoint delta = globalMousePos - m_dragStartPosition;
         move(pos() + delta);
         m_dragStartPosition = globalMousePos;
-        //qDebug() << "Mouse Position:" << globalMousePos;
+        qDebug() << "Mouse Position:" << globalMousePos;
     }
 }
 
@@ -51,9 +55,19 @@ void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
         }
         else
         {
-            showFullScreen();
+            showMaximized();
         }
     }
+}
+
+void MainWindow::minimizeWindow()
+{
+    showMinimized();
+}
+
+void MainWindow::exitApp()
+{
+    qApp->exit();
 }
 
 
