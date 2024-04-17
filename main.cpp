@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     // Splash Screen'i yükle
     int splashWidth = 600;
     int splashHeight = 400;
-    QSplashScreen splash(QPixmap(":/images/SampleSplash.jpeg").scaled(splashWidth,splashHeight)); // Ekranı istediğiniz bir resimle değiştirin
+    QSplashScreen splash(QPixmap(":/images/Assets/Images/SampleSplash.jpeg").scaled(splashWidth,splashHeight)); // Ekranı istediğiniz bir resimle değiştirin
 
 
     QRect screenGeometry = QGuiApplication::primaryScreen()->geometry();
@@ -24,6 +24,9 @@ int main(int argc, char *argv[])
     // Ana pencere için hazırlık yap
     MainWindow mainWin;
     mainWin.setWindowFlags(Qt::CustomizeWindowHint | Qt::FramelessWindowHint); // Üst çubuk ve kenarlıkları kaldırır
+
+    centerX = (screenGeometry.width()-mainWin.width())/2;
+    centerY = (screenGeometry.height()-mainWin.height())/2;
 
     mainWin.setGeometry(centerX, centerY, mainWin.width(), mainWin.height());
 

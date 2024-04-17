@@ -35,7 +35,12 @@ public:
     QPushButton *pushButton_minimize;
     QPushButton *pushButton_maximize;
     QPushButton *pushButton_exit;
+    QFrame *line;
     QFrame *frame_main;
+    QHBoxLayout *horizontalLayout_3;
+    QFrame *frame_leftMenu;
+    QFrame *frame_base;
+    QFrame *line_2;
     QFrame *frame_bottomBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -89,7 +94,7 @@ public:
         pushButton_minimize->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton_minimize->setAutoFillBackground(false);
         pushButton_minimize->setStyleSheet(QString::fromUtf8("QPushButton{\n"
-"background-image: url(:/icons/icon_minimize.png);\n"
+"background-image: url(:/icons/Assets/icons/icon_minimize.png);\n"
 "background-color: rgb(60, 60, 60);\n"
 "border:none;\n"
 "border-radius:15px;\n"
@@ -117,7 +122,7 @@ public:
         pushButton_maximize->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton_maximize->setAutoFillBackground(false);
         pushButton_maximize->setStyleSheet(QString::fromUtf8("QPushButton{\n"
-"background-image: url(:/icons/icon_maximize.png);\n"
+"background-image: url(:/icons/Assets/icons/icon_maximize.png);\n"
 "background-color: rgb(60, 60, 60);\n"
 "border:none;\n"
 "background-repeat: no-repeat;\n"
@@ -145,7 +150,7 @@ public:
         pushButton_exit->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton_exit->setAutoFillBackground(false);
         pushButton_exit->setStyleSheet(QString::fromUtf8("QPushButton{\n"
-"background-image: url(:/icons/cil-x.png);\n"
+"background-image: url(:/icons/Assets/icons/cil-x.png);\n"
 "background-color: rgb(60, 60, 60);\n"
 "border:none;\n"
 "background-repeat: no-repeat;\n"
@@ -173,13 +178,51 @@ public:
 
         verticalLayout->addWidget(frame_topBar);
 
+        line = new QFrame(centralwidget);
+        line->setObjectName("line");
+        line->setStyleSheet(QString::fromUtf8("background-color: rgb(98, 160, 234);"));
+        line->setFrameShadow(QFrame::Sunken);
+        line->setLineWidth(1);
+        line->setFrameShape(QFrame::Shape::HLine);
+
+        verticalLayout->addWidget(line);
+
         frame_main = new QFrame(centralwidget);
         frame_main->setObjectName("frame_main");
         frame_main->setStyleSheet(QString::fromUtf8("background-color: rgb(61, 56, 70);"));
         frame_main->setFrameShape(QFrame::NoFrame);
         frame_main->setFrameShadow(QFrame::Raised);
+        horizontalLayout_3 = new QHBoxLayout(frame_main);
+        horizontalLayout_3->setSpacing(0);
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
+        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
+        frame_leftMenu = new QFrame(frame_main);
+        frame_leftMenu->setObjectName("frame_leftMenu");
+        frame_leftMenu->setMinimumSize(QSize(250, 0));
+        frame_leftMenu->setMaximumSize(QSize(250, 16777215));
+        frame_leftMenu->setStyleSheet(QString::fromUtf8("background-color: rgb(46, 41, 59);"));
+        frame_leftMenu->setFrameShape(QFrame::NoFrame);
+        frame_leftMenu->setFrameShadow(QFrame::Raised);
+
+        horizontalLayout_3->addWidget(frame_leftMenu);
+
+        frame_base = new QFrame(frame_main);
+        frame_base->setObjectName("frame_base");
+        frame_base->setFrameShape(QFrame::NoFrame);
+        frame_base->setFrameShadow(QFrame::Raised);
+
+        horizontalLayout_3->addWidget(frame_base);
+
 
         verticalLayout->addWidget(frame_main);
+
+        line_2 = new QFrame(centralwidget);
+        line_2->setObjectName("line_2");
+        line_2->setStyleSheet(QString::fromUtf8("background-color: rgb(98, 160, 234);"));
+        line_2->setFrameShape(QFrame::Shape::HLine);
+        line_2->setFrameShadow(QFrame::Shadow::Sunken);
+
+        verticalLayout->addWidget(line_2);
 
         frame_bottomBar = new QFrame(centralwidget);
         frame_bottomBar->setObjectName("frame_bottomBar");

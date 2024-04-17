@@ -20,6 +20,14 @@ MainWindow::MainWindow(QWidget *parent)
 
 }
 
+
+
+
+
+
+
+
+
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton && ui->frame_topBar && ui->frame_topBar->geometry().contains(event->pos()))

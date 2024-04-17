@@ -785,11 +785,11 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_resources.cpp
 qrc_resources.cpp: ../../resources.qrc \
 		/home/furkan/Qt/6.7.0/gcc_64/libexec/rcc \
-		../../SampleSplash.jpeg \
-		../../icon_maximize.png \
-		../../x.png \
-		../../icon_minimize.png \
-		../../cil-x.png
+		../../Assets/Images/SampleSplash.jpeg \
+		../../Assets/icons/icon_maximize.png \
+		../../Assets/icons/x.png \
+		../../Assets/icons/icon_minimize.png \
+		../../Assets/icons/cil-x.png
 	/home/furkan/Qt/6.7.0/gcc_64/libexec/rcc -name resources ../../resources.qrc -o qrc_resources.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h

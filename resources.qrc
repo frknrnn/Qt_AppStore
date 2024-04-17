@@ -1,11 +1,11 @@
 <RCC>
     <qresource prefix="/images">
-        <file>SampleSplash.jpeg</file>
+        <file>Assets/Images/SampleSplash.jpeg</file>
     </qresource>
     <qresource prefix="/icons">
-        <file>cil-x.png</file>
-        <file>icon_minimize.png</file>
-        <file>x.png</file>
-        <file>icon_maximize.png</file>
+        <file>Assets/icons/cil-x.png</file>
+        <file>Assets/icons/icon_maximize.png</file>
+        <file>Assets/icons/icon_minimize.png</file>
+        <file>Assets/icons/x.png</file>
     </qresource>
 </RCC>
