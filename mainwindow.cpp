@@ -25,15 +25,17 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::leftMenuControl(){
         int width = ui->frame_leftMenu->width();
-        int maxExtend = 250;
+        int maxExtend = 275;
         int widthExtended=0;
         int standard = 20;
 
         if(width==standard){
             widthExtended=maxExtend;
+            updateLeftControlButtonUi(true);
         }
         else{
             widthExtended=standard;
+            updateLeftControlButtonUi(false);
         }
 
         QPropertyAnimation *animation = new QPropertyAnimation(ui->frame_leftMenu, "minimumWidth");
@@ -51,6 +53,9 @@ void MainWindow::leftMenuControl(){
         animation->start();
         animation2->start();
 }
+
+
+
 
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
@@ -94,6 +99,53 @@ void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
         {
             showMaximized();
         }
+    }
+}
+
+
+
+void MainWindow::updateLeftControlButtonUi(bool isExtend)
+{
+
+    // Butonun genel stil bilgisi
+    QString buttonStyleExtend = "QPushButton {"
+          "    background-image: url(:/icons/Assets/icons/leftArrow.png);" // Normal durumda arka plan rengi
+          "    background-color: rgb(46, 41, 59);"
+          "    border: none;"              // Kenarlık yok
+          "    background-repeat: no-repeat;"
+          "    background-position: center;"
+          "    border-top-left-radius: 0;"
+          "    border-top-right-radius: 5px;"
+          "    border-bottom-right-radius: 5px;"
+          "    border-bottom-left-radius: 0px;"
+          "}";
+
+    QString buttonStyleNoExtend = "QPushButton {"
+                                "    background-image: url(:/icons/Assets/icons/rightArrow.png);" // Normal durumda arka plan rengi
+                                "    border: none;"              // Kenarlık yok
+                                "    background-color: rgb(46, 41, 59);"
+                                "    background-repeat: no-repeat;"
+                                "    background-position: center;"
+                                "    border-top-left-radius: 0;"
+                                "    border-top-right-radius: 5px;"
+                                "    border-bottom-right-radius: 5px;"
+                                "    border-bottom-left-radius: 0px;"
+                                "}";
+
+    // Butonun hover durumundaki stil bilgisi
+    QString hoverStyle = "QPushButton:hover {"
+                         "background-color: rgb(119, 118, 123);"
+                         "    border: none;"              // Kenarlık yok
+                         "    background-repeat: no-repeat;"
+                         "}";
+
+
+
+
+    if(isExtend){
+        ui->pushButton_leftControl->setStyleSheet(buttonStyleExtend+hoverStyle);
+    }else{
+        ui->pushButton_leftControl->setStyleSheet(buttonStyleNoExtend+hoverStyle);
     }
 }
 
