@@ -39,8 +39,13 @@ public:
     QFrame *frame_main;
     QHBoxLayout *horizontalLayout_3;
     QFrame *frame_leftMenu;
+    QHBoxLayout *horizontalLayout_4;
+    QFrame *frame_leftMenuContent;
+    QFrame *frame_leftMenuControl;
+    QVBoxLayout *verticalLayout_2;
+    QPushButton *pushButton_leftControl;
+    QSpacerItem *verticalSpacer;
     QFrame *frame_base;
-    QPushButton *pushButton;
     QFrame *line_2;
     QFrame *frame_bottomBar;
 
@@ -57,6 +62,7 @@ public:
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         frame_topBar = new QFrame(centralwidget);
         frame_topBar->setObjectName("frame_topBar");
+        frame_topBar->setMinimumSize(QSize(0, 50));
         frame_topBar->setMaximumSize(QSize(16777215, 50));
         frame_topBar->setStyleSheet(QString::fromUtf8("background-color: rgb(36, 31, 49);"));
         frame_topBar->setFrameShape(QFrame::NoFrame);
@@ -199,11 +205,63 @@ public:
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
         frame_leftMenu = new QFrame(frame_main);
         frame_leftMenu->setObjectName("frame_leftMenu");
-        frame_leftMenu->setMinimumSize(QSize(250, 0));
-        frame_leftMenu->setMaximumSize(QSize(250, 16777215));
+        frame_leftMenu->setMinimumSize(QSize(275, 0));
+        frame_leftMenu->setMaximumSize(QSize(275, 16777215));
         frame_leftMenu->setStyleSheet(QString::fromUtf8("background-color: rgb(46, 41, 59);"));
         frame_leftMenu->setFrameShape(QFrame::NoFrame);
         frame_leftMenu->setFrameShadow(QFrame::Raised);
+        horizontalLayout_4 = new QHBoxLayout(frame_leftMenu);
+        horizontalLayout_4->setSpacing(0);
+        horizontalLayout_4->setObjectName("horizontalLayout_4");
+        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
+        frame_leftMenuContent = new QFrame(frame_leftMenu);
+        frame_leftMenuContent->setObjectName("frame_leftMenuContent");
+        frame_leftMenuContent->setFrameShape(QFrame::NoFrame);
+        frame_leftMenuContent->setFrameShadow(QFrame::Raised);
+
+        horizontalLayout_4->addWidget(frame_leftMenuContent);
+
+        frame_leftMenuControl = new QFrame(frame_leftMenu);
+        frame_leftMenuControl->setObjectName("frame_leftMenuControl");
+        frame_leftMenuControl->setMinimumSize(QSize(20, 0));
+        frame_leftMenuControl->setMaximumSize(QSize(20, 16777215));
+        frame_leftMenuControl->setStyleSheet(QString::fromUtf8("background-color: rgb(61, 56, 70);"));
+        frame_leftMenuControl->setFrameShape(QFrame::NoFrame);
+        frame_leftMenuControl->setFrameShadow(QFrame::Raised);
+        verticalLayout_2 = new QVBoxLayout(frame_leftMenuControl);
+        verticalLayout_2->setSpacing(0);
+        verticalLayout_2->setObjectName("verticalLayout_2");
+        verticalLayout_2->setContentsMargins(0, 5, 0, 0);
+        pushButton_leftControl = new QPushButton(frame_leftMenuControl);
+        pushButton_leftControl->setObjectName("pushButton_leftControl");
+        pushButton_leftControl->setMinimumSize(QSize(20, 50));
+        pushButton_leftControl->setMaximumSize(QSize(20, 50));
+        pushButton_leftControl->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"background-image: url(:/icons/Assets/icons/leftArrow.png);\n"
+"background-color: rgb(46, 41, 59);\n"
+"border:none;\n"
+"background-repeat: no-repeat;\n"
+"background-position: center;\n"
+" border-top-left-radius: 0;\n"
+" border-top-right-radius: 5px;\n"
+"border-bottom-right-radius: 5px;\n"
+" border-bottom-left-radius: 0px;\n"
+"}\n"
+"QPushButton::hover{\n"
+"background-color: rgb(119, 118, 123);\n"
+"border:none;\n"
+"background-repeat: no-repeat;\n"
+"}"));
+
+        verticalLayout_2->addWidget(pushButton_leftControl);
+
+        verticalSpacer = new QSpacerItem(17, 436, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer);
+
+
+        horizontalLayout_4->addWidget(frame_leftMenuControl);
+
 
         horizontalLayout_3->addWidget(frame_leftMenu);
 
@@ -211,9 +269,6 @@ public:
         frame_base->setObjectName("frame_base");
         frame_base->setFrameShape(QFrame::NoFrame);
         frame_base->setFrameShadow(QFrame::Raised);
-        pushButton = new QPushButton(frame_base);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(170, 130, 89, 25));
 
         horizontalLayout_3->addWidget(frame_base);
 
@@ -230,6 +285,7 @@ public:
 
         frame_bottomBar = new QFrame(centralwidget);
         frame_bottomBar->setObjectName("frame_bottomBar");
+        frame_bottomBar->setMinimumSize(QSize(0, 50));
         frame_bottomBar->setMaximumSize(QSize(16777215, 50));
         frame_bottomBar->setStyleSheet(QString::fromUtf8("background-color: rgb(36, 31, 49);"));
         frame_bottomBar->setFrameShape(QFrame::NoFrame);
@@ -264,7 +320,7 @@ public:
         pushButton_exit->setToolTip(QCoreApplication::translate("MainWindow", "Exit", nullptr));
 #endif // QT_CONFIG(tooltip)
         pushButton_exit->setText(QString());
-        pushButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        pushButton_leftControl->setText(QString());
     } // retranslateUi
 
 };

@@ -18,18 +18,18 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_minimize,&QPushButton::clicked,this,&MainWindow::minimizeWindow);
     connect(ui->pushButton_exit,&QPushButton::clicked,this,&MainWindow::exitApp);
     connect(ui->pushButton_maximize,&QPushButton::clicked,this,&MainWindow::maximizeWindow);
-    connect(ui->pushButton,&QPushButton::clicked,this,&MainWindow::leftMenuControl);
+    connect(ui->pushButton_leftControl,&QPushButton::clicked,this,&MainWindow::leftMenuControl);
 
 }
 
 
 void MainWindow::leftMenuControl(){
         int width = ui->frame_leftMenu->width();
-        int maxExtend = 200;
+        int maxExtend = 250;
         int widthExtended=0;
-        int standard = 0;
+        int standard = 20;
 
-        if(width==0){
+        if(width==standard){
             widthExtended=maxExtend;
         }
         else{

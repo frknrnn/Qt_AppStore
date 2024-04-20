@@ -787,9 +787,11 @@ qrc_resources.cpp: ../../resources.qrc \
 		/home/furkan/Qt/6.7.0/gcc_64/libexec/rcc \
 		../../Assets/Images/SampleSplash.jpeg \
 		../../Assets/icons/icon_maximize.png \
+		../../Assets/icons/rightArrow.png \
 		../../Assets/icons/x.png \
 		../../Assets/icons/icon_minimize.png \
-		../../Assets/icons/cil-x.png
+		../../Assets/icons/cil-x.png \
+		../../Assets/icons/leftArrow.png
 	/home/furkan/Qt/6.7.0/gcc_64/libexec/rcc -name resources ../../resources.qrc -o qrc_resources.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h
@@ -1419,7 +1421,13 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QWidget \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/QMouseEvent \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/QCursor \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QDebug
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QDebug \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QEasingCurve \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qeasingcurve.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QPropertyAnimation \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qpropertyanimation.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qvariantanimation.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qabstractanimation.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../mainwindow.cpp
 
 qrc_resources.o: qrc_resources.cpp 

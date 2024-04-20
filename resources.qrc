@@ -7,5 +7,7 @@
         <file>Assets/icons/icon_maximize.png</file>
         <file>Assets/icons/icon_minimize.png</file>
         <file>Assets/icons/x.png</file>
+        <file>Assets/icons/leftArrow.png</file>
+        <file>Assets/icons/rightArrow.png</file>
     </qresource>
 </RCC>
