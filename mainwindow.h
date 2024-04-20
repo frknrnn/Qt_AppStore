@@ -20,6 +20,7 @@ public:
 private:
     Ui::MainWindow *ui;
     bool m_dragging;
+    bool m_isLeftMenuExpand;
     QPoint m_dragStartPosition;
 
 protected:
@@ -29,6 +30,7 @@ protected:
     void mouseDoubleClickEvent(QMouseEvent *event) override;
 
 private slots:
+    void leftMenuControl();
     void minimizeWindow();
     void exitApp();
     void maximizeWindow();

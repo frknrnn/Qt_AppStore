@@ -40,6 +40,7 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QFrame *frame_leftMenu;
     QFrame *frame_base;
+    QPushButton *pushButton;
     QFrame *line_2;
     QFrame *frame_bottomBar;
 
@@ -210,6 +211,9 @@ public:
         frame_base->setObjectName("frame_base");
         frame_base->setFrameShape(QFrame::NoFrame);
         frame_base->setFrameShadow(QFrame::Raised);
+        pushButton = new QPushButton(frame_base);
+        pushButton->setObjectName("pushButton");
+        pushButton->setGeometry(QRect(170, 130, 89, 25));
 
         horizontalLayout_3->addWidget(frame_base);
 
@@ -260,6 +264,7 @@ public:
         pushButton_exit->setToolTip(QCoreApplication::translate("MainWindow", "Exit", nullptr));
 #endif // QT_CONFIG(tooltip)
         pushButton_exit->setText(QString());
+        pushButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
     } // retranslateUi
 
 };

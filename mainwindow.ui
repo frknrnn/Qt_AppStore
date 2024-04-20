@@ -397,6 +397,19 @@ background-position: center;
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
+         <widget class="QPushButton" name="pushButton">
+          <property name="geometry">
+           <rect>
+            <x>170</x>
+            <y>130</y>
+            <width>89</width>
+            <height>25</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>PushButton</string>
+          </property>
+         </widget>
         </widget>
        </item>
       </layout>
