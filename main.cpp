@@ -9,9 +9,9 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     // Splash Screen'i yükle
-    int splashWidth = 600;
-    int splashHeight = 400;
-    QSplashScreen splash(QPixmap(":/images/Assets/Images/SampleSplash.jpeg").scaled(splashWidth,splashHeight)); // Ekranı istediğiniz bir resimle değiştirin
+    int splashWidth = 640;
+    int splashHeight = 480;
+    QSplashScreen splash(QPixmap(":/images/Assets/Images/splashScreen.png").scaled(splashWidth,splashHeight)); // Ekranı istediğiniz bir resimle değiştirin
 
 
     QRect screenGeometry = QGuiApplication::primaryScreen()->geometry();

@@ -785,6 +785,7 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_resources.cpp
 qrc_resources.cpp: ../../resources.qrc \
 		/home/furkan/Qt/6.7.0/gcc_64/libexec/rcc \
+		../../Assets/Images/splashScreen.png \
 		../../Assets/Images/SampleSplash.jpeg \
 		../../Assets/icons/icon_maximize.png \
 		../../Assets/icons/rightArrow.png \
