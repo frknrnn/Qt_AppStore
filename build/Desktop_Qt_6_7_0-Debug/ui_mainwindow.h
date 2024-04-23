@@ -41,6 +41,13 @@ public:
     QFrame *frame_leftMenu;
     QHBoxLayout *horizontalLayout_4;
     QFrame *frame_leftMenuContent;
+    QVBoxLayout *verticalLayout_3;
+    QPushButton *pushButton_dashboard;
+    QPushButton *pushButton_mySerialKeys;
+    QPushButton *pushButton_myFavorites;
+    QSpacerItem *verticalSpacer_2;
+    QFrame *line_3;
+    QPushButton *pushButton_settings;
     QFrame *frame_leftMenuControl;
     QVBoxLayout *verticalLayout_2;
     QPushButton *pushButton_leftControl;
@@ -218,6 +225,115 @@ public:
         frame_leftMenuContent->setObjectName("frame_leftMenuContent");
         frame_leftMenuContent->setFrameShape(QFrame::NoFrame);
         frame_leftMenuContent->setFrameShadow(QFrame::Raised);
+        verticalLayout_3 = new QVBoxLayout(frame_leftMenuContent);
+        verticalLayout_3->setSpacing(15);
+        verticalLayout_3->setObjectName("verticalLayout_3");
+        verticalLayout_3->setContentsMargins(0, 25, 0, -1);
+        pushButton_dashboard = new QPushButton(frame_leftMenuContent);
+        pushButton_dashboard->setObjectName("pushButton_dashboard");
+        pushButton_dashboard->setMinimumSize(QSize(220, 35));
+        pushButton_dashboard->setMaximumSize(QSize(220, 35));
+        pushButton_dashboard->setCursor(QCursor(Qt::PointingHandCursor));
+        pushButton_dashboard->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"background-color: rgb(239, 216, 255);\n"
+"border-radius:4px;\n"
+"border:none;\n"
+"padding: 0px 10px;\n"
+"background-repeat: no-repeat;\n"
+"background-position: left center;\n"
+"background-origin: content;\n"
+"color: rgb(0, 0, 0);\n"
+"font: 700 11pt \"Sans\";\n"
+"}\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(216, 171, 255);\n"
+"}\n"
+""));
+
+        verticalLayout_3->addWidget(pushButton_dashboard, 0, Qt::AlignHCenter);
+
+        pushButton_mySerialKeys = new QPushButton(frame_leftMenuContent);
+        pushButton_mySerialKeys->setObjectName("pushButton_mySerialKeys");
+        pushButton_mySerialKeys->setMinimumSize(QSize(220, 35));
+        pushButton_mySerialKeys->setMaximumSize(QSize(220, 35));
+        pushButton_mySerialKeys->setCursor(QCursor(Qt::PointingHandCursor));
+        pushButton_mySerialKeys->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"background-color: rgb(239, 216, 255);\n"
+"border-radius:4px;\n"
+"border:none;\n"
+"padding: 0px 10px;\n"
+"background-repeat: no-repeat;\n"
+"background-position: left center;\n"
+"background-origin: content;\n"
+"color: rgb(0, 0, 0);\n"
+"font: 700 11pt \"Sans\";\n"
+"}\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(216, 171, 255);\n"
+"}\n"
+""));
+
+        verticalLayout_3->addWidget(pushButton_mySerialKeys, 0, Qt::AlignHCenter);
+
+        pushButton_myFavorites = new QPushButton(frame_leftMenuContent);
+        pushButton_myFavorites->setObjectName("pushButton_myFavorites");
+        pushButton_myFavorites->setMinimumSize(QSize(220, 35));
+        pushButton_myFavorites->setMaximumSize(QSize(220, 35));
+        pushButton_myFavorites->setCursor(QCursor(Qt::PointingHandCursor));
+        pushButton_myFavorites->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"background-color: rgb(239, 216, 255);\n"
+"border-radius:4px;\n"
+"border:none;\n"
+"padding: 0px 10px;\n"
+"background-repeat: no-repeat;\n"
+"background-position: left center;\n"
+"background-origin: content;\n"
+"color: rgb(0, 0, 0);\n"
+"font: 700 11pt \"Sans\";\n"
+"}\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(216, 171, 255);\n"
+"}\n"
+""));
+
+        verticalLayout_3->addWidget(pushButton_myFavorites, 0, Qt::AlignHCenter);
+
+        verticalSpacer_2 = new QSpacerItem(20, 239, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+
+        verticalLayout_3->addItem(verticalSpacer_2);
+
+        line_3 = new QFrame(frame_leftMenuContent);
+        line_3->setObjectName("line_3");
+        line_3->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
+        line_3->setFrameShadow(QFrame::Sunken);
+        line_3->setLineWidth(1);
+        line_3->setFrameShape(QFrame::Shape::HLine);
+
+        verticalLayout_3->addWidget(line_3);
+
+        pushButton_settings = new QPushButton(frame_leftMenuContent);
+        pushButton_settings->setObjectName("pushButton_settings");
+        pushButton_settings->setMinimumSize(QSize(220, 35));
+        pushButton_settings->setMaximumSize(QSize(220, 35));
+        pushButton_settings->setCursor(QCursor(Qt::PointingHandCursor));
+        pushButton_settings->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"background-color: rgb(239, 216, 255);\n"
+"border-radius:4px;\n"
+"border:none;\n"
+"padding: 0px 10px;\n"
+"background-repeat: no-repeat;\n"
+"background-position: left center;\n"
+"background-origin: content;\n"
+"color: rgb(0, 0, 0);\n"
+"font: 700 11pt \"Sans\";\n"
+"}\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(216, 171, 255);\n"
+"}\n"
+""));
+
+        verticalLayout_3->addWidget(pushButton_settings, 0, Qt::AlignHCenter);
+
 
         horizontalLayout_4->addWidget(frame_leftMenuContent);
 
@@ -320,6 +436,10 @@ public:
         pushButton_exit->setToolTip(QCoreApplication::translate("MainWindow", "Exit", nullptr));
 #endif // QT_CONFIG(tooltip)
         pushButton_exit->setText(QString());
+        pushButton_dashboard->setText(QCoreApplication::translate("MainWindow", "HOME", nullptr));
+        pushButton_mySerialKeys->setText(QCoreApplication::translate("MainWindow", "MY SERIAL KEYS", nullptr));
+        pushButton_myFavorites->setText(QCoreApplication::translate("MainWindow", "MY FAVORITES", nullptr));
+        pushButton_settings->setText(QCoreApplication::translate("MainWindow", "SETTINGS", nullptr));
         pushButton_leftControl->setText(QString());
     } // retranslateUi
 
