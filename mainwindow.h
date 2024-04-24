@@ -29,6 +29,7 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event) override;
     void mouseDoubleClickEvent(QMouseEvent *event) override;
     void updateLeftControlButtonUi(bool isExtend);
+    void bindingCustomFrames();
 
 private slots:
     void leftMenuControl();

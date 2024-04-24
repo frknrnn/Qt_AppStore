@@ -10,14 +10,17 @@ CONFIG += c++17
 
 SOURCES += \
     customstyles.cpp \
+    dashboardcontrol.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     customstyles.h \
+    dashboardcontrol.h \
     mainwindow.h
 
 FORMS += \
+    dashboardcontrol.ui \
     mainwindow.ui
 
 # Default rules for deployment.

@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "customstyles.h"
+#include "dashboardcontrol.h"
 
 #include <QMouseEvent>
 #include <QCursor>
@@ -8,6 +9,7 @@
 #include <QEasingCurve>
 #include <QPropertyAnimation>
 #include <QSizeGrip>
+#include <QVBoxLayout>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -24,6 +26,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     QSizeGrip* windowSizeGrip = new QSizeGrip(ui->frame_size_grip);
     windowSizeGrip->setStyleSheet(MainWindow_SizeGrip_StyleSheet);
+
+    bindingCustomFrames();
 
 }
 
@@ -117,6 +121,19 @@ void MainWindow::updateLeftControlButtonUi(bool isExtend)
     }else{
         ui->pushButton_leftControl->setStyleSheet(buttonStyleNoExtend+hoverStyle);
     }
+}
+
+void MainWindow::bindingCustomFrames()
+{
+    QVBoxLayout* m_dashBordControlLayout = new QVBoxLayout(ui->frame_dashboard);
+    m_dashBordControlLayout->setContentsMargins(0, 0, 0, 0);
+    m_dashBordControlLayout->setSpacing(0);
+
+    Dashboardcontrol* m_dashBoardContolPage = new Dashboardcontrol();
+    m_dashBordControlLayout->addWidget(m_dashBoardContolPage);
+
+
+
 }
 
 void MainWindow::minimizeWindow()

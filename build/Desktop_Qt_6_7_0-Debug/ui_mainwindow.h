@@ -17,6 +17,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -53,6 +54,12 @@ public:
     QPushButton *pushButton_leftControl;
     QSpacerItem *verticalSpacer;
     QFrame *frame_base;
+    QVBoxLayout *verticalLayout_3;
+    QStackedWidget *stackedWidget_base;
+    QWidget *page;
+    QHBoxLayout *horizontalLayout_7;
+    QFrame *frame_dashboard;
+    QWidget *page_2;
     QFrame *line_2;
     QFrame *frame_bottomBar;
     QHBoxLayout *horizontalLayout_6;
@@ -364,6 +371,30 @@ public:
         frame_base->setObjectName("frame_base");
         frame_base->setFrameShape(QFrame::NoFrame);
         frame_base->setFrameShadow(QFrame::Raised);
+        verticalLayout_3 = new QVBoxLayout(frame_base);
+        verticalLayout_3->setSpacing(0);
+        verticalLayout_3->setObjectName("verticalLayout_3");
+        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
+        stackedWidget_base = new QStackedWidget(frame_base);
+        stackedWidget_base->setObjectName("stackedWidget_base");
+        page = new QWidget();
+        page->setObjectName("page");
+        horizontalLayout_7 = new QHBoxLayout(page);
+        horizontalLayout_7->setObjectName("horizontalLayout_7");
+        frame_dashboard = new QFrame(page);
+        frame_dashboard->setObjectName("frame_dashboard");
+        frame_dashboard->setFrameShape(QFrame::NoFrame);
+        frame_dashboard->setFrameShadow(QFrame::Raised);
+
+        horizontalLayout_7->addWidget(frame_dashboard);
+
+        stackedWidget_base->addWidget(page);
+        page_2 = new QWidget();
+        page_2->setObjectName("page_2");
+        stackedWidget_base->addWidget(page_2);
+
+        verticalLayout_3->addWidget(stackedWidget_base);
+
 
         horizontalLayout_3->addWidget(frame_base);
 
@@ -431,6 +462,7 @@ public:
         pushButton_minimize->setDefault(false);
         pushButton_maximize->setDefault(false);
         pushButton_exit->setDefault(false);
+        stackedWidget_base->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
