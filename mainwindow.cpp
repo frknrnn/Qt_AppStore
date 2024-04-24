@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QEasingCurve>
 #include <QPropertyAnimation>
+#include <QSizeGrip>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -20,6 +21,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_exit,&QPushButton::clicked,this,&MainWindow::exitApp);
     connect(ui->pushButton_maximize,&QPushButton::clicked,this,&MainWindow::maximizeWindow);
     connect(ui->pushButton_leftControl,&QPushButton::clicked,this,&MainWindow::leftMenuControl);
+
+    QSizeGrip* windowSizeGrip = new QSizeGrip(ui->frame_size_grip);
+    windowSizeGrip->setStyleSheet(MainWindow_SizeGrip_StyleSheet);
 
 }
 

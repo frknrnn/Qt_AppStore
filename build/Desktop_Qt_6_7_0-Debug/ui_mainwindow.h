@@ -55,6 +55,10 @@ public:
     QFrame *frame_base;
     QFrame *line_2;
     QFrame *frame_bottomBar;
+    QHBoxLayout *horizontalLayout_6;
+    QLabel *label_credits;
+    QLabel *label_version;
+    QFrame *frame_size_grip;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -376,11 +380,47 @@ public:
 
         frame_bottomBar = new QFrame(centralwidget);
         frame_bottomBar->setObjectName("frame_bottomBar");
-        frame_bottomBar->setMinimumSize(QSize(0, 50));
-        frame_bottomBar->setMaximumSize(QSize(16777215, 50));
+        frame_bottomBar->setMinimumSize(QSize(0, 30));
+        frame_bottomBar->setMaximumSize(QSize(16777215, 30));
         frame_bottomBar->setStyleSheet(QString::fromUtf8("background-color: rgb(28, 26, 26);"));
         frame_bottomBar->setFrameShape(QFrame::NoFrame);
         frame_bottomBar->setFrameShadow(QFrame::Raised);
+        horizontalLayout_6 = new QHBoxLayout(frame_bottomBar);
+        horizontalLayout_6->setSpacing(0);
+        horizontalLayout_6->setObjectName("horizontalLayout_6");
+        horizontalLayout_6->setContentsMargins(15, 0, 0, 0);
+        label_credits = new QLabel(frame_bottomBar);
+        label_credits->setObjectName("label_credits");
+        QFont font;
+        font.setFamilies({QString::fromUtf8("Segoe UI")});
+        label_credits->setFont(font);
+        label_credits->setStyleSheet(QString::fromUtf8("color: rgb(100, 100, 100);"));
+
+        horizontalLayout_6->addWidget(label_credits);
+
+        label_version = new QLabel(frame_bottomBar);
+        label_version->setObjectName("label_version");
+        label_version->setMaximumSize(QSize(100, 16777215));
+        label_version->setFont(font);
+        label_version->setStyleSheet(QString::fromUtf8("color: rgb(98, 103, 111);"));
+        label_version->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        horizontalLayout_6->addWidget(label_version);
+
+        frame_size_grip = new QFrame(frame_bottomBar);
+        frame_size_grip->setObjectName("frame_size_grip");
+        frame_size_grip->setMaximumSize(QSize(20, 20));
+        frame_size_grip->setCursor(QCursor(Qt::SizeFDiagCursor));
+        frame_size_grip->setStyleSheet(QString::fromUtf8("QSizeGrip {\n"
+"	background-image: url(:/icons/Assets/icons/cil-size-grip.png);\n"
+"	background-position: center;\n"
+"	background-repeat: no-reperat;\n"
+"}"));
+        frame_size_grip->setFrameShape(QFrame::NoFrame);
+        frame_size_grip->setFrameShadow(QFrame::Raised);
+
+        horizontalLayout_6->addWidget(frame_size_grip);
+
 
         verticalLayout->addWidget(frame_bottomBar);
 
@@ -417,6 +457,8 @@ public:
         pushButton_mySerialKeys->setText(QCoreApplication::translate("MainWindow", "MY SERIAL KEYS", nullptr));
         pushButton_myFavorites->setText(QCoreApplication::translate("MainWindow", "MY FAVORITES", nullptr));
         pushButton_leftControl->setText(QString());
+        label_credits->setText(QCoreApplication::translate("MainWindow", "Registered by: F. Eren", nullptr));
+        label_version->setText(QCoreApplication::translate("MainWindow", "v1.0.0", nullptr));
     } // retranslateUi
 
 };

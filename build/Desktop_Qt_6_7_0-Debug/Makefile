@@ -794,6 +794,7 @@ qrc_resources.cpp: ../../resources.qrc \
 		../../Assets/icons/icon_maximize.png \
 		../../Assets/icons/rightArrow.png \
 		../../Assets/icons/x.png \
+		../../Assets/icons/cil-size-grip.png \
 		../../Assets/icons/icon_minimize.png \
 		../../Assets/icons/cil-x.png \
 		../../Assets/icons/leftArrow.png
@@ -1547,7 +1548,9 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QPropertyAnimation \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qpropertyanimation.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qvariantanimation.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qabstractanimation.h
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qabstractanimation.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QSizeGrip \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qsizegrip.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../mainwindow.cpp
 
 qrc_resources.o: qrc_resources.cpp 
