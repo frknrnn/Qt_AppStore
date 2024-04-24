@@ -11,5 +11,6 @@
         <file>Assets/icons/leftArrow.png</file>
         <file>Assets/icons/rightArrow.png</file>
         <file>Assets/icons/cil-size-grip.png</file>
+        <file>Assets/icons/back.png</file>
     </qresource>
 </RCC>

@@ -798,6 +798,7 @@ qrc_resources.cpp: ../../resources.qrc \
 		../../Assets/Images/splashScreen.png \
 		../../Assets/Images/SampleSplash.jpeg \
 		../../Assets/icons/icon_maximize.png \
+		../../Assets/icons/back.png \
 		../../Assets/icons/rightArrow.png \
 		../../Assets/icons/x.png \
 		../../Assets/icons/cil-size-grip.png \
@@ -1520,7 +1521,24 @@ dashboardcontrol.o: ../../dashboardcontrol.cpp ../../dashboardcontrol.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qinputmethod.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qlocale.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication_platform.h \
-		ui_dashboardcontrol.h
+		ui_dashboardcontrol.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QVariant \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QApplication \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qapplication.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlayout.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QLabel \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlabel.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qpicture.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qtextdocument.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QPushButton \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QSpacerItem \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dashboardcontrol.o ../../dashboardcontrol.cpp
 
 main.o: ../../main.cpp ../../mainwindow.h \
@@ -1928,10 +1946,13 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qpushbutton.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qabstractbutton.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QSpacerItem \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QStackedWidget \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qstackedwidget.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QVBoxLayout \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QWidget \
 		../../customstyles.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QDebug \
+		../../dashboardcontrol.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/QMouseEvent \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/QCursor \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QEasingCurve \
