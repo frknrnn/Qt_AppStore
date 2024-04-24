@@ -326,6 +326,7 @@ public:
         pushButton_leftControl->setObjectName("pushButton_leftControl");
         pushButton_leftControl->setMinimumSize(QSize(20, 100));
         pushButton_leftControl->setMaximumSize(QSize(20, 100));
+        pushButton_leftControl->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton_leftControl->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "background-image: url(:/icons/Assets/icons/leftArrow.png);\n"
 "background-color: rgb(37, 33, 33);\n"

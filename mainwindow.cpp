@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "customstyles.h"
 
 #include <QMouseEvent>
 #include <QCursor>
@@ -57,9 +58,6 @@ void MainWindow::leftMenuControl(){
 }
 
 
-
-
-
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton && ui->frame_topBar && ui->frame_topBar->geometry().contains(event->pos()))
@@ -104,45 +102,11 @@ void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
     }
 }
 
-
-
 void MainWindow::updateLeftControlButtonUi(bool isExtend)
 {
-
-    // Butonun genel stil bilgisi
-    QString buttonStyleExtend = "QPushButton {"
-          "    background-image: url(:/icons/Assets/icons/leftArrow.png);" // Normal durumda arka plan rengi
-          "    background-color: rgb(37, 33, 33);"
-          "    border: none;"              // Kenarlık yok
-          "    background-repeat: no-repeat;"
-          "    background-position: center;"
-          "    border-top-left-radius: 0;"
-          "    border-top-right-radius: 5px;"
-          "    border-bottom-right-radius: 5px;"
-          "    border-bottom-left-radius: 0px;"
-          "}";
-
-    QString buttonStyleNoExtend = "QPushButton {"
-                                "    background-image: url(:/icons/Assets/icons/rightArrow.png);" // Normal durumda arka plan rengi
-                                "    border: none;"              // Kenarlık yok
-                                "    background-color: rgb(37, 33, 33);"
-                                "    background-repeat: no-repeat;"
-                                "    background-position: center;"
-                                "    border-top-left-radius: 0;"
-                                "    border-top-right-radius: 5px;"
-                                "    border-bottom-right-radius: 5px;"
-                                "    border-bottom-left-radius: 0px;"
-                                "}";
-
-    // Butonun hover durumundaki stil bilgisi
-    QString hoverStyle = "QPushButton:hover {"
-                         "background-color: rgb(119, 118, 123);"
-                         "    border: none;"              // Kenarlık yok
-                         "    background-repeat: no-repeat;"
-                         "}";
-
-
-
+    QString buttonStyleExtend = MainWindow_LeftMenu_ExpanderExpendStyle;
+    QString buttonStyleNoExtend = MainWindow_LeftMenu_ExpanderNoExpendStyle;
+    QString hoverStyle = MainWindow_LeftMenu_ExpanderHoverStyle;
 
     if(isExtend){
         ui->pushButton_leftControl->setStyleSheet(buttonStyleExtend+hoverStyle);
