@@ -52,6 +52,8 @@ void MainWindow::leftMenuControl(){
 
         animation->start();
         animation2->start();
+
+
 }
 
 
@@ -110,7 +112,7 @@ void MainWindow::updateLeftControlButtonUi(bool isExtend)
     // Butonun genel stil bilgisi
     QString buttonStyleExtend = "QPushButton {"
           "    background-image: url(:/icons/Assets/icons/leftArrow.png);" // Normal durumda arka plan rengi
-          "    background-color: rgb(46, 41, 59);"
+          "    background-color: rgb(37, 33, 33);"
           "    border: none;"              // Kenarlık yok
           "    background-repeat: no-repeat;"
           "    background-position: center;"
@@ -123,7 +125,7 @@ void MainWindow::updateLeftControlButtonUi(bool isExtend)
     QString buttonStyleNoExtend = "QPushButton {"
                                 "    background-image: url(:/icons/Assets/icons/rightArrow.png);" // Normal durumda arka plan rengi
                                 "    border: none;"              // Kenarlık yok
-                                "    background-color: rgb(46, 41, 59);"
+                                "    background-color: rgb(37, 33, 33);"
                                 "    background-repeat: no-repeat;"
                                 "    background-position: center;"
                                 "    border-top-left-radius: 0;"
