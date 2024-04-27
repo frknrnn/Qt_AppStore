@@ -2,6 +2,7 @@
 #define DASHBOARDCONTROL_H
 
 #include <QFrame>
+#include <QVBoxLayout>
 
 namespace Ui {
 class Dashboardcontrol;
@@ -19,7 +20,12 @@ public:
     void ShowAppDashboard();
 
 private:
-    Ui::Dashboardcontrol *ui;
+    Ui::Dashboardcontrol *ui; 
+    void CreateApps();
+    void CreateVersionListOfApp();
+
+    QVBoxLayout *DashBoardLayout;
+    QVBoxLayout *VersionListLayout;
 };
 
 #endif // DASHBOARDCONTROL_H

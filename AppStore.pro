@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     Models/modelmanager.cpp \
+    Views/AppListItem/applistitem.cpp \
     Views/AppView/appview.cpp \
     Styles/customstyles.cpp \
     Views/Dashboard/dashboardcontrol.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
 
 HEADERS += \
     Models/modelmanager.h \
+    Views/AppListItem/applistitem.h \
     Views/AppView/appview.h \
     Styles/customstyles.h \
     Views/Dashboard/dashboardcontrol.h \
@@ -26,6 +28,7 @@ HEADERS += \
     Views/VersionListView/versionlistview.h
 
 FORMS += \
+    Views/AppListItem/applistitem.ui \
     Views/AppView/appview.ui \
     Views/Dashboard/dashboardcontrol.ui \
     mainwindow.ui \

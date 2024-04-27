@@ -34,7 +34,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::leftMenuControl(){
         int width = ui->frame_leftMenu->width();
-        int maxExtend = 275;
+        int maxExtend = 200;
         int widthExtended=0;
         int standard = 20;
 

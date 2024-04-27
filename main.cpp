@@ -3,6 +3,8 @@
 #include <QTimer>
 #include <QApplication>
 #include <QScreen> // Ekranın boyutunu almak için
+#include <Models/modelmanager.h>
+
 
 int main(int argc, char *argv[])
 {
@@ -33,6 +35,7 @@ int main(int argc, char *argv[])
     QTimer::singleShot(3000, &splash, &QWidget::close); // 5 saniye sonra splash screen'i kapat
     QTimer::singleShot(3000, &mainWin, &QWidget::show); // 5 saniye sonra ana pencereyi göster
 
+    ModelManager *m_modelManager = ModelManager::getInstance();
 
     return app.exec();
 }
