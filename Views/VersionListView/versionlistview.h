@@ -15,6 +15,7 @@ public:
     explicit VersionListView(QWidget *parent = nullptr);
     ~VersionListView();
     void Back();
+    void AddItem();
 
 signals:
     void BackButtonClickedSignal();

@@ -193,9 +193,6 @@ void MainWindow::ShowKeys()
 }
 
 
-
-
-
 void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 {
     Q_UNUSED(event);
