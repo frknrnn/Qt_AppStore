@@ -56,10 +56,18 @@ public:
     QFrame *frame_base;
     QVBoxLayout *verticalLayout_3;
     QStackedWidget *stackedWidget_base;
-    QWidget *page;
+    QWidget *page_dashboard;
     QHBoxLayout *horizontalLayout_7;
     QFrame *frame_dashboard;
-    QWidget *page_2;
+    QWidget *page_serialKeys;
+    QVBoxLayout *verticalLayout_4;
+    QFrame *frame_serialKeys;
+    QWidget *page_favorites;
+    QVBoxLayout *verticalLayout_5;
+    QFrame *frame_favorites;
+    QWidget *page_loadingAnimation;
+    QVBoxLayout *verticalLayout_6;
+    QFrame *frame_loadingAnimation;
     QFrame *line_2;
     QFrame *frame_bottomBar;
     QHBoxLayout *horizontalLayout_6;
@@ -377,21 +385,54 @@ public:
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
         stackedWidget_base = new QStackedWidget(frame_base);
         stackedWidget_base->setObjectName("stackedWidget_base");
-        page = new QWidget();
-        page->setObjectName("page");
-        horizontalLayout_7 = new QHBoxLayout(page);
+        page_dashboard = new QWidget();
+        page_dashboard->setObjectName("page_dashboard");
+        horizontalLayout_7 = new QHBoxLayout(page_dashboard);
         horizontalLayout_7->setObjectName("horizontalLayout_7");
-        frame_dashboard = new QFrame(page);
+        frame_dashboard = new QFrame(page_dashboard);
         frame_dashboard->setObjectName("frame_dashboard");
         frame_dashboard->setFrameShape(QFrame::NoFrame);
         frame_dashboard->setFrameShadow(QFrame::Raised);
 
         horizontalLayout_7->addWidget(frame_dashboard);
 
-        stackedWidget_base->addWidget(page);
-        page_2 = new QWidget();
-        page_2->setObjectName("page_2");
-        stackedWidget_base->addWidget(page_2);
+        stackedWidget_base->addWidget(page_dashboard);
+        page_serialKeys = new QWidget();
+        page_serialKeys->setObjectName("page_serialKeys");
+        verticalLayout_4 = new QVBoxLayout(page_serialKeys);
+        verticalLayout_4->setObjectName("verticalLayout_4");
+        frame_serialKeys = new QFrame(page_serialKeys);
+        frame_serialKeys->setObjectName("frame_serialKeys");
+        frame_serialKeys->setFrameShape(QFrame::NoFrame);
+        frame_serialKeys->setFrameShadow(QFrame::Raised);
+
+        verticalLayout_4->addWidget(frame_serialKeys);
+
+        stackedWidget_base->addWidget(page_serialKeys);
+        page_favorites = new QWidget();
+        page_favorites->setObjectName("page_favorites");
+        verticalLayout_5 = new QVBoxLayout(page_favorites);
+        verticalLayout_5->setObjectName("verticalLayout_5");
+        frame_favorites = new QFrame(page_favorites);
+        frame_favorites->setObjectName("frame_favorites");
+        frame_favorites->setFrameShape(QFrame::NoFrame);
+        frame_favorites->setFrameShadow(QFrame::Raised);
+
+        verticalLayout_5->addWidget(frame_favorites);
+
+        stackedWidget_base->addWidget(page_favorites);
+        page_loadingAnimation = new QWidget();
+        page_loadingAnimation->setObjectName("page_loadingAnimation");
+        verticalLayout_6 = new QVBoxLayout(page_loadingAnimation);
+        verticalLayout_6->setObjectName("verticalLayout_6");
+        frame_loadingAnimation = new QFrame(page_loadingAnimation);
+        frame_loadingAnimation->setObjectName("frame_loadingAnimation");
+        frame_loadingAnimation->setFrameShape(QFrame::NoFrame);
+        frame_loadingAnimation->setFrameShadow(QFrame::Raised);
+
+        verticalLayout_6->addWidget(frame_loadingAnimation);
+
+        stackedWidget_base->addWidget(page_loadingAnimation);
 
         verticalLayout_3->addWidget(stackedWidget_base);
 

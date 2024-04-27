@@ -9,19 +9,26 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    appview.cpp \
     customstyles.cpp \
     dashboardcontrol.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    versionlistview.cpp
 
 HEADERS += \
+    appview.h \
     customstyles.h \
     dashboardcontrol.h \
-    mainwindow.h
+    dashboardcontrol.h \
+    mainwindow.h \
+    versionlistview.h
 
 FORMS += \
+    appview.ui \
     dashboardcontrol.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    versionlistview.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
