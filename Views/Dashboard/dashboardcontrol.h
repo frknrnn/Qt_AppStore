@@ -16,6 +16,7 @@ public:
     ~Dashboardcontrol();
 
     void ShowSelectedAppVersionListView();
+    void ShowAppDashboard();
 
 private:
     Ui::Dashboardcontrol *ui;

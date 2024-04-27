@@ -14,6 +14,10 @@ class VersionListView : public QFrame
 public:
     explicit VersionListView(QWidget *parent = nullptr);
     ~VersionListView();
+    void Back();
+
+signals:
+    void BackButtonClickedSignal();
 
 private:
     Ui::VersionListView *ui;

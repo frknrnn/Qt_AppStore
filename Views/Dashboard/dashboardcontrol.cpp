@@ -34,6 +34,7 @@ Dashboardcontrol::Dashboardcontrol(QWidget *parent)
 
     QVBoxLayout *versionListLayout = new QVBoxLayout(ui->page_VersionList);
     VersionListView *sampleVersionList = new VersionListView();
+    connect(sampleVersionList,&VersionListView::BackButtonClickedSignal,this,&Dashboardcontrol::ShowAppDashboard);
 
     versionListLayout->addWidget(sampleVersionList);
 
@@ -49,4 +50,9 @@ Dashboardcontrol::~Dashboardcontrol()
 void Dashboardcontrol::ShowSelectedAppVersionListView()
 {
     ui->stackedWidget->setCurrentIndex(1);
+}
+
+void Dashboardcontrol::ShowAppDashboard()
+{
+    ui->stackedWidget->setCurrentIndex(0);
 }
