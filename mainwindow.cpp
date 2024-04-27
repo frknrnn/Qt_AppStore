@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "customstyles.h"
-#include "dashboardcontrol.h"
+#include "Styles/customstyles.h"
+#include "Views/Dashboard/dashboardcontrol.h"
 
 #include <QMouseEvent>
 #include <QCursor>
