@@ -11,7 +11,7 @@ VersionListView::VersionListView(QWidget *parent)
 
     connect(ui->pushButton_backButton,&QPushButton::clicked,this,&VersionListView::Back);
 
-    ui->listWidget->setSpacing(15);
+    ui->listWidget->setSpacing(17);
     ui->listWidget->setStyleSheet("QListWidget::item:hover {background-color:transparent;}");
     ui->listWidget->setFocusPolicy(Qt::NoFocus);
     ui->listWidget->setSelectionMode(QAbstractItemView::NoSelection);

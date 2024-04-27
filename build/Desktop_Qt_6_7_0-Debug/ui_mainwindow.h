@@ -110,13 +110,13 @@ public:
         label_app_icon->setObjectName("label_app_icon");
         label_app_icon->setMinimumSize(QSize(40, 40));
         label_app_icon->setMaximumSize(QSize(40, 40));
-        label_app_icon->setStyleSheet(QString::fromUtf8("background-color: rgb(230, 97, 0);"));
+        label_app_icon->setStyleSheet(QString::fromUtf8("background-color: rgb(246, 245, 244);"));
 
         horizontalLayout_5->addWidget(label_app_icon);
 
         label = new QLabel(frame_topBarApp);
         label->setObjectName("label");
-        label->setStyleSheet(QString::fromUtf8("color: rgb(230, 97, 0);\n"
+        label->setStyleSheet(QString::fromUtf8("color: rgb(246, 245, 244);\n"
 "font: 700 13pt \"Ubuntu\";"));
 
         horizontalLayout_5->addWidget(label);
@@ -249,8 +249,8 @@ public:
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
         frame_leftMenu = new QFrame(frame_main);
         frame_leftMenu->setObjectName("frame_leftMenu");
-        frame_leftMenu->setMinimumSize(QSize(275, 0));
-        frame_leftMenu->setMaximumSize(QSize(275, 16777215));
+        frame_leftMenu->setMinimumSize(QSize(200, 0));
+        frame_leftMenu->setMaximumSize(QSize(200, 16777215));
         frame_leftMenu->setStyleSheet(QString::fromUtf8("background-color: rgb(37, 33, 33);"));
         frame_leftMenu->setFrameShape(QFrame::NoFrame);
         frame_leftMenu->setFrameShadow(QFrame::Raised);
@@ -266,66 +266,79 @@ public:
         frame_leftMenuContent->setFrameShadow(QFrame::Raised);
         pushButton_dashboard = new QPushButton(frame_leftMenuContent);
         pushButton_dashboard->setObjectName("pushButton_dashboard");
-        pushButton_dashboard->setGeometry(QRect(17, 25, 220, 35));
-        pushButton_dashboard->setMinimumSize(QSize(220, 35));
-        pushButton_dashboard->setMaximumSize(QSize(220, 35));
+        pushButton_dashboard->setGeometry(QRect(10, 20, 150, 40));
+        pushButton_dashboard->setMinimumSize(QSize(150, 40));
+        pushButton_dashboard->setMaximumSize(QSize(150, 30));
         pushButton_dashboard->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton_dashboard->setStyleSheet(QString::fromUtf8("QPushButton{\n"
-"background-color: rgb(246, 245, 244);\n"
-"border-radius:4px;\n"
+"font: 700 11pt \"Ubuntu\";\n"
+"background-image: url(:/icons/Assets/icons/Dashboard.png);\n"
+"background-color:rgb(200, 69, 0);\n"
+"border-radius:2px;\n"
+"color: rgb(255, 255, 255);\n"
 "border:none;\n"
-"padding: 0px 10px;\n"
-"background-repeat: no-repeat;\n"
+"padding: 0px 10px 0px 10px;\n"
+" background-repeat: no-repeat;\n"
 "background-position: left center;\n"
-"background-origin: content;\n"
-"color: rgb(0, 0, 0);\n"
-"font: 700 11pt \"Sans\";\n"
+"background-origin: content; \n"
 "}\n"
+"\n"
 "QPushButton::hover{\n"
-"	background-color: rgb(255, 163, 72);\n"
+"background-color:rgb(200, 69, 0);\n"
 "}\n"
+"\n"
+"\n"
 ""));
         pushButton_mySerialKeys = new QPushButton(frame_leftMenuContent);
         pushButton_mySerialKeys->setObjectName("pushButton_mySerialKeys");
-        pushButton_mySerialKeys->setGeometry(QRect(17, 75, 220, 35));
-        pushButton_mySerialKeys->setMinimumSize(QSize(220, 35));
-        pushButton_mySerialKeys->setMaximumSize(QSize(220, 35));
+        pushButton_mySerialKeys->setGeometry(QRect(10, 70, 150, 40));
+        pushButton_mySerialKeys->setMinimumSize(QSize(150, 40));
+        pushButton_mySerialKeys->setMaximumSize(QSize(150, 40));
         pushButton_mySerialKeys->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton_mySerialKeys->setStyleSheet(QString::fromUtf8("QPushButton{\n"
-"background-color: rgb(246, 245, 244);\n"
-"border-radius:4px;\n"
+"font: 700 11pt \"Ubuntu\";\n"
+"background-image: url(:/icons/Assets/icons/Key.png);\n"
+"background-color:transparent;\n"
+"border-radius:2px;\n"
+"color: rgb(255, 255, 255);\n"
 "border:none;\n"
-"padding: 0px 10px;\n"
-"background-repeat: no-repeat;\n"
+"padding: 0px 10px 0px 10px;\n"
+" background-repeat: no-repeat;\n"
 "background-position: left center;\n"
-"background-origin: content;\n"
-"color: rgb(0, 0, 0);\n"
-"font: 700 11pt \"Sans\";\n"
+"background-origin: content; \n"
 "}\n"
+"\n"
 "QPushButton::hover{\n"
-"	background-color: rgb(255, 163, 72);\n"
+"background-color:rgb(200, 69, 0);\n"
 "}\n"
+"\n"
+"\n"
+"\n"
 ""));
         pushButton_myFavorites = new QPushButton(frame_leftMenuContent);
         pushButton_myFavorites->setObjectName("pushButton_myFavorites");
-        pushButton_myFavorites->setGeometry(QRect(17, 125, 220, 35));
-        pushButton_myFavorites->setMinimumSize(QSize(220, 35));
-        pushButton_myFavorites->setMaximumSize(QSize(220, 35));
+        pushButton_myFavorites->setGeometry(QRect(10, 120, 150, 40));
+        pushButton_myFavorites->setMinimumSize(QSize(150, 40));
+        pushButton_myFavorites->setMaximumSize(QSize(150, 40));
         pushButton_myFavorites->setCursor(QCursor(Qt::PointingHandCursor));
         pushButton_myFavorites->setStyleSheet(QString::fromUtf8("QPushButton{\n"
-"background-color: rgb(246, 245, 244);\n"
-"border-radius:4px;\n"
+"font: 700 11pt \"Ubuntu\";\n"
+"background-image: url(:/icons/Assets/icons/Star.png);\n"
+"background-color:transparent;\n"
+"border-radius:2px;\n"
+"color: rgb(255, 255, 255);\n"
 "border:none;\n"
-"padding: 0px 10px;\n"
-"background-repeat: no-repeat;\n"
+"padding: 0px 10px 0px 10px;\n"
+" background-repeat: no-repeat;\n"
 "background-position: left center;\n"
-"background-origin: content;\n"
-"color: rgb(0, 0, 0);\n"
-"font: 700 11pt \"Sans\";\n"
+"background-origin: content; \n"
 "}\n"
+"\n"
 "QPushButton::hover{\n"
-"	background-color: rgb(255, 163, 72);\n"
+"background-color:rgb(200, 69, 0);\n"
 "}\n"
+"\n"
+"\n"
 ""));
 
         horizontalLayout_4->addWidget(frame_leftMenuContent);
@@ -526,9 +539,9 @@ public:
         pushButton_exit->setToolTip(QCoreApplication::translate("MainWindow", "Exit", nullptr));
 #endif // QT_CONFIG(tooltip)
         pushButton_exit->setText(QString());
-        pushButton_dashboard->setText(QCoreApplication::translate("MainWindow", "HOME", nullptr));
-        pushButton_mySerialKeys->setText(QCoreApplication::translate("MainWindow", "MY SERIAL KEYS", nullptr));
-        pushButton_myFavorites->setText(QCoreApplication::translate("MainWindow", "MY FAVORITES", nullptr));
+        pushButton_dashboard->setText(QCoreApplication::translate("MainWindow", "Home", nullptr));
+        pushButton_mySerialKeys->setText(QCoreApplication::translate("MainWindow", "        My Serials", nullptr));
+        pushButton_myFavorites->setText(QCoreApplication::translate("MainWindow", "       Favorites", nullptr));
         pushButton_leftControl->setText(QString());
         label_credits->setText(QCoreApplication::translate("MainWindow", "Registered by: F. Eren", nullptr));
         label_version->setText(QCoreApplication::translate("MainWindow", "v1.0.0", nullptr));

@@ -15,5 +15,8 @@
         <file>Assets/icons/Star.png</file>
         <file>Assets/icons/Key.png</file>
         <file>Assets/icons/Dashboard.png</file>
+        <file>Assets/icons/circle_star.png</file>
+        <file>Assets/icons/circle_info.png</file>
+        <file>Assets/icons/circle_download.png</file>
     </qresource>
 </RCC>
