@@ -8,7 +8,19 @@ AppView::AppView(QWidget *parent)
     ui->setupUi(this);
 }
 
+
 AppView::~AppView()
 {
     delete ui;
+}
+
+void AppView::SetAppName(QString appName)
+{
+    AppName = appName;
+    ui->label_AppName->setText(appName);
+}
+
+void AppView::mousePressEvent(QMouseEvent *event)
+{
+    qDebug() << "AppName:" << AppName;
 }

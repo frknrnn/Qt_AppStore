@@ -132,7 +132,7 @@ void MainWindow::bindingCustomFrames()
     Dashboardcontrol* m_dashBoardContolPage = new Dashboardcontrol();
     m_dashBordControlLayout->addWidget(m_dashBoardContolPage);
 
-
+    ui->stackedWidget_base->setCurrentIndex(0);
 
 }
 

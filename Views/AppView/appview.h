@@ -14,6 +14,14 @@ class AppView : public QFrame
 public:
     explicit AppView(QWidget *parent = nullptr);
     ~AppView();
+    QString AppName;
+
+
+    void SetAppName(QString appName);
+
+
+protected:
+    void mousePressEvent(QMouseEvent *event) override;
 
 private:
     Ui::AppView *ui;
