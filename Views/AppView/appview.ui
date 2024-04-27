@@ -30,12 +30,13 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QFrame{
-background-color: rgb(164, 73, 0);
+background-color: rgb(58, 53, 53);
 border-radius:10px;
 }
 
 QFrame::hover{
-	background-color: rgb(200, 69, 0);
+	
+	background-color: rgb(164, 73, 0);
 }
 
 </string>

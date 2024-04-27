@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPushButton>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -36,6 +37,9 @@ private slots:
     void minimizeWindow();
     void exitApp();
     void maximizeWindow();
+    void ShowDashboard();
+    void ShowFavorites();
+    void ShowKeys();
 
 };
 #endif // MAINWINDOW_H

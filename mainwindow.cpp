@@ -24,6 +24,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_maximize,&QPushButton::clicked,this,&MainWindow::maximizeWindow);
     connect(ui->pushButton_leftControl,&QPushButton::clicked,this,&MainWindow::leftMenuControl);
 
+    connect(ui->pushButton_dashboard,&QPushButton::clicked,this,&MainWindow::ShowDashboard);
+    connect(ui->pushButton_myFavorites,&QPushButton::clicked,this,&MainWindow::ShowFavorites);
+    connect(ui->pushButton_mySerialKeys,&QPushButton::clicked,this,&MainWindow::ShowKeys);
+
     QSizeGrip* windowSizeGrip = new QSizeGrip(ui->frame_size_grip);
     windowSizeGrip->setStyleSheet(MainWindow_SizeGrip_StyleSheet);
 
@@ -82,6 +86,7 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
 
 void MainWindow::mouseMoveEvent(QMouseEvent *event)
 {
+    Q_UNUSED(event);
     if (m_dragging)
     {
         if(!isMaximized()){
@@ -160,6 +165,36 @@ void MainWindow::maximizeWindow()
         showMaximized();
     }
 }
+
+void MainWindow::ShowDashboard()
+{
+    ui->pushButton_dashboard->setStyleSheet(MainWindow_DashboardActive_StyleSheet+MainWindow_MainWindow_HoverStyle);
+    ui->pushButton_myFavorites->setStyleSheet(MainWindow_FavoritesNoActive_StyleSheet+MainWindow_MainWindow_HoverStyle);
+    ui->pushButton_mySerialKeys->setStyleSheet(MainWindow_SerialNoActive_StyleSheet+MainWindow_MainWindow_HoverStyle);
+    ui->stackedWidget_base->setCurrentIndex(0);
+
+
+}
+
+void MainWindow::ShowFavorites()
+{
+    ui->pushButton_dashboard->setStyleSheet(MainWindow_DashboardNoActive_StyleSheet+MainWindow_MainWindow_HoverStyle);
+    ui->pushButton_myFavorites->setStyleSheet(MainWindow_FavoritesActive_StyleSheet+MainWindow_MainWindow_HoverStyle);
+    ui->pushButton_mySerialKeys->setStyleSheet(MainWindow_SerialNoActive_StyleSheet+MainWindow_MainWindow_HoverStyle);
+    ui->stackedWidget_base->setCurrentIndex(1);
+}
+
+void MainWindow::ShowKeys()
+{
+    ui->pushButton_dashboard->setStyleSheet(MainWindow_DashboardNoActive_StyleSheet+MainWindow_MainWindow_HoverStyle);
+    ui->pushButton_myFavorites->setStyleSheet(MainWindow_FavoritesNoActive_StyleSheet+MainWindow_MainWindow_HoverStyle);
+    ui->pushButton_mySerialKeys->setStyleSheet(MainWindow_SerialActive_StyleSheet+MainWindow_MainWindow_HoverStyle);
+    ui->stackedWidget_base->setCurrentIndex(2);
+}
+
+
+
+
 
 void MainWindow::mouseReleaseEvent(QMouseEvent *event)
 {
