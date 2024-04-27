@@ -1,6 +1,7 @@
 #include "dashboardcontrol.h"
 #include "ui_dashboardcontrol.h"
 #include "Views/AppView/appview.h"
+#include "Views/VersionListView/versionlistview.h"
 
 #include "QVBoxLayout"
 #include "QSpacerItem"
@@ -11,10 +12,13 @@ Dashboardcontrol::Dashboardcontrol(QWidget *parent)
 {
     ui->setupUi(this);
 
-    QVBoxLayout *dashBoardLayout = new QVBoxLayout(ui->scrollArea);
+    QVBoxLayout *dashBoardLayout = new QVBoxLayout(ui->page_AppList);
 
     AppView *sampleApp1 = new AppView();
     sampleApp1->SetAppName("Deneme1");
+
+    connect(sampleApp1,&AppView::ShowAppVersionListSignal,this,&Dashboardcontrol::ShowSelectedAppVersionListView);
+
 
     AppView *sampleApp2 = new AppView();
     sampleApp2->SetAppName("Deneme2");
@@ -26,6 +30,13 @@ Dashboardcontrol::Dashboardcontrol(QWidget *parent)
 
     dashBoardLayout->addItem(verticalSpacer);
 
+    ui->stackedWidget->setCurrentIndex(0);
+
+    QVBoxLayout *versionListLayout = new QVBoxLayout(ui->page_VersionList);
+    VersionListView *sampleVersionList = new VersionListView();
+
+    versionListLayout->addWidget(sampleVersionList);
+
 }
 
 
@@ -33,4 +44,9 @@ Dashboardcontrol::Dashboardcontrol(QWidget *parent)
 Dashboardcontrol::~Dashboardcontrol()
 {
     delete ui;
+}
+
+void Dashboardcontrol::ShowSelectedAppVersionListView()
+{
+    ui->stackedWidget->setCurrentIndex(1);
 }

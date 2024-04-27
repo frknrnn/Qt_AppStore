@@ -15,6 +15,8 @@ public:
     explicit Dashboardcontrol(QWidget *parent = nullptr);
     ~Dashboardcontrol();
 
+    void ShowSelectedAppVersionListView();
+
 private:
     Ui::Dashboardcontrol *ui;
 };

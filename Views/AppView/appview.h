@@ -3,6 +3,7 @@
 
 #include <QFrame>
 
+
 namespace Ui {
 class AppView;
 }
@@ -15,9 +16,10 @@ public:
     explicit AppView(QWidget *parent = nullptr);
     ~AppView();
     QString AppName;
-
-
     void SetAppName(QString appName);
+
+signals:
+    void ShowAppVersionListSignal();
 
 
 protected:
