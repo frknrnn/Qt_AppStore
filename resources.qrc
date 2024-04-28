@@ -2,6 +2,7 @@
     <qresource prefix="/images">
         <file>Assets/Images/SampleSplash.jpeg</file>
         <file>Assets/Images/splashScreen.png</file>
+        <file>Assets/Images/Discover.png</file>
     </qresource>
     <qresource prefix="/icons">
         <file>Assets/icons/cil-x.png</file>
@@ -18,5 +19,7 @@
         <file>Assets/icons/circle_star.png</file>
         <file>Assets/icons/circle_info.png</file>
         <file>Assets/icons/circle_download.png</file>
+        <file>Assets/icons/Spinner-0.5s-100px.gif</file>
+        <file>Assets/icons/Spinner@1x-0.6s-200px-200px.gif</file>
     </qresource>
 </RCC>

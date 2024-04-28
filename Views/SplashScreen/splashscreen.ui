@@ -84,24 +84,28 @@
           </item>
           <item alignment="Qt::AlignHCenter">
            <widget class="QLabel" name="label">
+            <property name="minimumSize">
+             <size>
+              <width>350</width>
+              <height>350</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>350</width>
+              <height>350</height>
+             </size>
+            </property>
             <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);
-font: 63 24pt &quot;Yu Gothic UI Semibold&quot;;
-</string>
+             <string notr="true">QLabel{
+background-image: url(:/images/Assets/Images/Discover.png);
+border:none;
+background-repeat: no-repeat;
+background-position: center;
+}</string>
             </property>
             <property name="text">
-             <string>SOFTWARE CENTER</string>
-            </property>
-           </widget>
-          </item>
-          <item alignment="Qt::AlignHCenter">
-           <widget class="QLabel" name="label_2">
-            <property name="styleSheet">
-             <string notr="true">color: rgb(200, 200, 200);
-font: 63 12pt &quot;Yu Gothic UI Semibold&quot;;</string>
-            </property>
-            <property name="text">
-             <string>v1.0.0</string>
+             <string/>
             </property>
            </widget>
           </item>
@@ -181,7 +185,7 @@ font: 63 12pt &quot;Yu Gothic UI Semibold&quot;;</string>
                 <property name="styleSheet">
                  <string notr="true">background-color: rgb(15, 15, 15);
 border:2px solid;
-border-color: rgba(0, 170, 255,100);
+border-color: rgb(200, 69, 0);
 border-radius:3px;</string>
                 </property>
                 <property name="frameShape">
@@ -194,7 +198,7 @@ border-radius:3px;</string>
                  <property name="geometry">
                   <rect>
                    <x>20</x>
-                   <y>-300</y>
+                   <y>-650</y>
                    <width>280</width>
                    <height>1300</height>
                   </rect>
@@ -744,6 +748,90 @@ font: 75 13pt &quot;Monospac821 BT&quot;;</string>
                    <string>Password Reset :</string>
                   </property>
                  </widget>
+                 <widget class="QLabel" name="label_4">
+                  <property name="geometry">
+                   <rect>
+                    <x>90</x>
+                    <y>1260</y>
+                    <width>98</width>
+                    <height>19</height>
+                   </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color: rgb(200, 200, 200);
+font: 63 12pt &quot;Yu Gothic UI Semibold&quot;;
+border:none;</string>
+                  </property>
+                  <property name="text">
+                   <string>Initializing...</string>
+                  </property>
+                 </widget>
+                 <widget class="QLabel" name="label_gif_base">
+                  <property name="geometry">
+                   <rect>
+                    <x>89</x>
+                    <y>1058</y>
+                    <width>100</width>
+                    <height>100</height>
+                   </rect>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>100</width>
+                    <height>100</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>100</width>
+                    <height>100</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">border:none;</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                 <widget class="QLabel" name="label_5">
+                  <property name="geometry">
+                   <rect>
+                    <x>110</x>
+                    <y>800</y>
+                    <width>51</width>
+                    <height>19</height>
+                   </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color: rgb(200, 200, 200);
+font: 63 12pt &quot;Yu Gothic UI Semibold&quot;;</string>
+                  </property>
+                  <property name="text">
+                   <string>v1.0.0</string>
+                  </property>
+                 </widget>
+                 <widget class="QLabel" name="label_6">
+                  <property name="geometry">
+                   <rect>
+                    <x>-20</x>
+                    <y>740</y>
+                    <width>316</width>
+                    <height>38</height>
+                   </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">color: rgb(200, 69, 0);
+font: 63 18pt &quot;Yu Gothic UI Semibold&quot;;
+</string>
+                  </property>
+                  <property name="text">
+                   <string>SOFTWARE CENTER</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
                 </widget>
                </widget>
               </item>
@@ -1163,7 +1251,7 @@ border:none;
                 <property name="styleSheet">
                  <string notr="true">background-color: rgb(15, 15, 15);
 border:2px solid;
-border-color: rgba(0, 170, 255,100);
+border-color: rgb(200, 69, 0);
 border-radius:3px;</string>
                 </property>
                 <property name="frameShape">
@@ -1173,6 +1261,22 @@ border-radius:3px;</string>
                  <enum>QFrame::Raised</enum>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_4">
+                 <property name="bottomMargin">
+                  <number>20</number>
+                 </property>
+                 <item>
+                  <spacer name="verticalSpacer_3">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
                  <item alignment="Qt::AlignHCenter">
                   <widget class="QLabel" name="label_gif">
                    <property name="minimumSize">
@@ -1192,6 +1296,31 @@ border-radius:3px;</string>
                    </property>
                    <property name="text">
                     <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer_4">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item alignment="Qt::AlignHCenter">
+                  <widget class="QLabel" name="label_3">
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(200, 200, 200);
+font: 500 12pt &quot;Ubuntu&quot;;
+border:none;</string>
+                   </property>
+                   <property name="text">
+                    <string>Initializing...</string>
                    </property>
                   </widget>
                  </item>

@@ -12,10 +12,15 @@
 #include <QVBoxLayout>
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
+    : QMainWindow(parent,Qt::CustomizeWindowHint | Qt::FramelessWindowHint)
     , ui(new Ui::MainWindow),m_dragging(false)
 {
     ui->setupUi(this);
+
+    QRect screenGeometry = QGuiApplication::primaryScreen()->geometry();
+    int x = (screenGeometry.width() - width()) / 2;
+    int y = (screenGeometry.height() - height()) / 2;
+    move(x, y); // Pencereyi merkeze taşı
 
     m_isLeftMenuExpand=true;
     //Button Connections
