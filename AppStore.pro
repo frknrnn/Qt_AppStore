@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     Models/modelmanager.cpp \
+    Models/softwareappmodel.cpp \
     Views/AppListItem/applistitem.cpp \
     Views/AppView/appview.cpp \
     Styles/customstyles.cpp \
@@ -20,6 +21,7 @@ SOURCES += \
 
 HEADERS += \
     Models/modelmanager.h \
+    Models/softwareappmodel.h \
     Views/AppListItem/applistitem.h \
     Views/AppView/appview.h \
     Styles/customstyles.h \
