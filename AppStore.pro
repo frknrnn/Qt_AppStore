@@ -10,24 +10,28 @@ CONFIG += c++17
 
 SOURCES += \
     Models/authhandler.cpp \
+    Models/databasehandler.cpp \
     Models/modelmanager.cpp \
     Models/softwareappmodel.cpp \
     Views/AppListItem/applistitem.cpp \
     Views/AppView/appview.cpp \
     Styles/customstyles.cpp \
     Views/Dashboard/dashboardcontrol.cpp \
+    Views/SplashScreen/splashscreen.cpp \
     main.cpp \
     mainwindow.cpp \
     Views/VersionListView/versionlistview.cpp
 
 HEADERS += \
     Models/authhandler.h \
+    Models/databasehandler.h \
     Models/modelmanager.h \
     Models/softwareappmodel.h \
     Views/AppListItem/applistitem.h \
     Views/AppView/appview.h \
     Styles/customstyles.h \
     Views/Dashboard/dashboardcontrol.h \
+    Views/SplashScreen/splashscreen.h \
     mainwindow.h \
     Views/VersionListView/versionlistview.h
 
@@ -35,6 +39,7 @@ FORMS += \
     Views/AppListItem/applistitem.ui \
     Views/AppView/appview.ui \
     Views/Dashboard/dashboardcontrol.ui \
+    Views/SplashScreen/splashscreen.ui \
     mainwindow.ui \
     Views/VersionListView/versionlistview.ui
 
