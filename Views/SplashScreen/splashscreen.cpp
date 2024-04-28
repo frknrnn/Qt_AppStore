@@ -20,7 +20,7 @@ SplashScreen::SplashScreen(QWidget *parent)
     int y = (screenGeometry.height() - height()) / 2;
     move(x, y); // Pencereyi merkeze taşı
     ui->stackedWidget->setCurrentIndex(0);
-    showLoadingPage();
+    QTimer::singleShot(1000, this, &SplashScreen::showLoadingPage);
 }
 
 SplashScreen::~SplashScreen()
