@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -Wextra -fPIC -D_REENTRANT $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++1z -Wall -Wextra -fPIC -D_REENTRANT $(DEFINES)
-INCPATH       = -I../../../AppStore -I. -I/home/furkan/Qt/6.7.0/gcc_64/include -I/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets -I/home/furkan/Qt/6.7.0/gcc_64/include/QtGui -I/home/furkan/Qt/6.7.0/gcc_64/include/QtCore -I. -I. -I/home/furkan/Qt/6.7.0/gcc_64/mkspecs/linux-g++
+INCPATH       = -I../../../AppStore -I. -I/home/furkan/Qt/6.7.0/gcc_64/include -I/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets -I/home/furkan/Qt/6.7.0/gcc_64/include/QtGui -I/home/furkan/Qt/6.7.0/gcc_64/include/QtNetwork -I/home/furkan/Qt/6.7.0/gcc_64/include/QtCore -I. -I. -I/home/furkan/Qt/6.7.0/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/furkan/Qt/6.7.0/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = AppStore1.0.0
 DISTDIR = /home/furkan/Documents/gitRepos/CustomAppStore/AppStore/build/Desktop_Qt_6_7_0-Debug/.tmp/AppStore1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/furkan/Qt/6.7.0/gcc_64/lib -Wl,-rpath-link,/home/furkan/Qt/6.7.0/gcc_64/lib
-LIBS          = $(SUBLIBS) /home/furkan/Qt/6.7.0/gcc_64/lib/libQt6Widgets.so /home/furkan/Qt/6.7.0/gcc_64/lib/libQt6Gui.so /home/furkan/Qt/6.7.0/gcc_64/lib/libQt6Core.so -lpthread -lGL   
+LIBS          = $(SUBLIBS) /home/furkan/Qt/6.7.0/gcc_64/lib/libQt6Widgets.so /home/furkan/Qt/6.7.0/gcc_64/lib/libQt6Gui.so /home/furkan/Qt/6.7.0/gcc_64/lib/libQt6Network.so /home/furkan/Qt/6.7.0/gcc_64/lib/libQt6Core.so -lpthread -lGL   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -52,7 +52,9 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../../Models/modelmanager.cpp \
+SOURCES       = ../../Models/authhandler.cpp \
+		../../Models/modelmanager.cpp \
+		../../Models/softwareappmodel.cpp \
 		../../Views/AppListItem/applistitem.cpp \
 		../../Views/AppView/appview.cpp \
 		../../Styles/customstyles.cpp \
@@ -60,12 +62,15 @@ SOURCES       = ../../Models/modelmanager.cpp \
 		../../main.cpp \
 		../../mainwindow.cpp \
 		../../Views/VersionListView/versionlistview.cpp qrc_resources.cpp \
+		moc_authhandler.cpp \
 		moc_applistitem.cpp \
 		moc_appview.cpp \
 		moc_dashboardcontrol.cpp \
 		moc_mainwindow.cpp \
 		moc_versionlistview.cpp
-OBJECTS       = modelmanager.o \
+OBJECTS       = authhandler.o \
+		modelmanager.o \
+		softwareappmodel.o \
 		applistitem.o \
 		appview.o \
 		customstyles.o \
@@ -74,6 +79,7 @@ OBJECTS       = modelmanager.o \
 		mainwindow.o \
 		versionlistview.o \
 		qrc_resources.o \
+		moc_authhandler.o \
 		moc_applistitem.o \
 		moc_appview.o \
 		moc_dashboardcontrol.o \
@@ -298,13 +304,17 @@ DIST          = ../../Assets/Images/SampleSplash.jpeg \
 		/home/furkan/Qt/6.7.0/gcc_64/mkspecs/features/exceptions.prf \
 		/home/furkan/Qt/6.7.0/gcc_64/mkspecs/features/yacc.prf \
 		/home/furkan/Qt/6.7.0/gcc_64/mkspecs/features/lex.prf \
-		../../../../AppStore.pro ../../Models/modelmanager.h \
+		../../../../AppStore.pro ../../Models/authhandler.h \
+		../../Models/modelmanager.h \
+		../../Models/softwareappmodel.h \
 		../../Views/AppListItem/applistitem.h \
 		../../Views/AppView/appview.h \
 		../../Styles/customstyles.h \
 		../../Views/Dashboard/dashboardcontrol.h \
 		../../mainwindow.h \
-		../../Views/VersionListView/versionlistview.h ../../Models/modelmanager.cpp \
+		../../Views/VersionListView/versionlistview.h ../../Models/authhandler.cpp \
+		../../Models/modelmanager.cpp \
+		../../Models/softwareappmodel.cpp \
 		../../Views/AppListItem/applistitem.cpp \
 		../../Views/AppView/appview.cpp \
 		../../Styles/customstyles.cpp \
@@ -545,6 +555,7 @@ Makefile: ../../AppStore.pro /home/furkan/Qt/6.7.0/gcc_64/mkspecs/linux-g++/qmak
 		../../resources.qrc \
 		/home/furkan/Qt/6.7.0/gcc_64/lib/libQt6Widgets.prl \
 		/home/furkan/Qt/6.7.0/gcc_64/lib/libQt6Gui.prl \
+		/home/furkan/Qt/6.7.0/gcc_64/lib/libQt6Network.prl \
 		/home/furkan/Qt/6.7.0/gcc_64/lib/libQt6Core.prl
 	$(QMAKE) -o Makefile ../../AppStore.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 /home/furkan/Qt/6.7.0/gcc_64/mkspecs/features/spec_pre.prf:
@@ -769,6 +780,7 @@ Makefile: ../../AppStore.pro /home/furkan/Qt/6.7.0/gcc_64/mkspecs/linux-g++/qmak
 ../../resources.qrc:
 /home/furkan/Qt/6.7.0/gcc_64/lib/libQt6Widgets.prl:
 /home/furkan/Qt/6.7.0/gcc_64/lib/libQt6Gui.prl:
+/home/furkan/Qt/6.7.0/gcc_64/lib/libQt6Network.prl:
 /home/furkan/Qt/6.7.0/gcc_64/lib/libQt6Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../../AppStore.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
@@ -786,8 +798,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../resources.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /home/furkan/Qt/6.7.0/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../Models/modelmanager.h ../../Views/AppListItem/applistitem.h ../../Views/AppView/appview.h ../../Styles/customstyles.h ../../Views/Dashboard/dashboardcontrol.h ../../mainwindow.h ../../Views/VersionListView/versionlistview.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../Models/modelmanager.cpp ../../Views/AppListItem/applistitem.cpp ../../Views/AppView/appview.cpp ../../Styles/customstyles.cpp ../../Views/Dashboard/dashboardcontrol.cpp ../../main.cpp ../../mainwindow.cpp ../../Views/VersionListView/versionlistview.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Models/authhandler.h ../../Models/modelmanager.h ../../Models/softwareappmodel.h ../../Views/AppListItem/applistitem.h ../../Views/AppView/appview.h ../../Styles/customstyles.h ../../Views/Dashboard/dashboardcontrol.h ../../mainwindow.h ../../Views/VersionListView/versionlistview.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../Models/authhandler.cpp ../../Models/modelmanager.cpp ../../Models/softwareappmodel.cpp ../../Views/AppListItem/applistitem.cpp ../../Views/AppView/appview.cpp ../../Styles/customstyles.cpp ../../Views/Dashboard/dashboardcontrol.cpp ../../main.cpp ../../mainwindow.cpp ../../Views/VersionListView/versionlistview.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../../Views/AppListItem/applistitem.ui ../../Views/AppView/appview.ui ../../Views/Dashboard/dashboardcontrol.ui ../../mainwindow.ui ../../Views/VersionListView/versionlistview.ui $(DISTDIR)/
 
 
@@ -841,9 +853,154 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /home/furkan/Qt/6.7.0/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++1z -Wall -Wextra -fPIC -dM -E -o moc_predefs.h /home/furkan/Qt/6.7.0/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_applistitem.cpp moc_appview.cpp moc_dashboardcontrol.cpp moc_mainwindow.cpp moc_versionlistview.cpp
+compiler_moc_header_make_all: moc_authhandler.cpp moc_applistitem.cpp moc_appview.cpp moc_dashboardcontrol.cpp moc_mainwindow.cpp moc_versionlistview.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_applistitem.cpp moc_appview.cpp moc_dashboardcontrol.cpp moc_mainwindow.cpp moc_versionlistview.cpp
+	-$(DEL_FILE) moc_authhandler.cpp moc_applistitem.cpp moc_appview.cpp moc_dashboardcontrol.cpp moc_mainwindow.cpp moc_versionlistview.cpp
+moc_authhandler.cpp: ../../Models/authhandler.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QObject \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qobject.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qnamespace.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qglobal.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtversionchecks.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtconfiginclude.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qconfig.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtcore-config.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtconfigmacros.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtcoreexports.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qassert.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtnoop.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtypes.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtversion.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qsysinfo.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qlogging.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qflags.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcompare_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qatomic.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qyieldcpu.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qconstructormacros.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qexceptionhandling.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qforeach.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qttypetraits.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qfunctionpointer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qmalloc.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qminmax.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qnumeric.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qoverload.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qswap.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtresource.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qttranslation.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qversiontagging.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtmetamacros.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstring.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qchar.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringview.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qbytearray.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qrefcount.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qarraydata.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qpair.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qarraydatapointer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qarraydataops.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qxptype_traits.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/q20functional.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/q20memory.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qbytearrayview.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringfwd.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/q20type_traits.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringliteral.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qlatin1stringview.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qanystringview.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qutf8stringview.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringtokenizer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringconverter.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringconverter_base.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qlist.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qiterator.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringlist.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qalgorithms.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcoreevent.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qmetatype.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcompare.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcomparehelpers.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qdatastream.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qiodevicebase.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qfloat16.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qmath.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qiterable.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qmetacontainer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcontainerinfo.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtaggedpointer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qscopeguard.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qobject_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qbindingstorage.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QDebug \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qdebug.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtextstream.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qshareddata.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qmap.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qshareddata_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qset.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qhash.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QVariantMap \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qvariantmap.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QMap \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QVariant \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qvariant.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/q23utility.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QString \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QJsonObject \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qjsonobject.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qjsonvalue.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcborvalue.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qdatetime.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcalendar.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qlocale.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcborcommon.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qregularexpression.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qurl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/quuid.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qendian.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QJsonDocument \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qjsondocument.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtNetwork/QNetworkRequest \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtNetwork/qtnetworkexports.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QSharedDataPointer \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QUrl \
+		moc_predefs.h \
+		/home/furkan/Qt/6.7.0/gcc_64/libexec/moc
+	/home/furkan/Qt/6.7.0/gcc_64/libexec/moc $(DEFINES) --include /home/furkan/Documents/gitRepos/CustomAppStore/AppStore/build/Desktop_Qt_6_7_0-Debug/moc_predefs.h -I/home/furkan/Qt/6.7.0/gcc_64/mkspecs/linux-g++ -I/home/furkan/Documents/gitRepos/CustomAppStore/AppStore -I/home/furkan/Qt/6.7.0/gcc_64/include -I/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets -I/home/furkan/Qt/6.7.0/gcc_64/include/QtGui -I/home/furkan/Qt/6.7.0/gcc_64/include/QtNetwork -I/home/furkan/Qt/6.7.0/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../Models/authhandler.h -o moc_authhandler.cpp
+
 moc_applistitem.cpp: ../../Views/AppListItem/applistitem.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QFrame \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qframe.h \
@@ -1033,7 +1190,7 @@ moc_applistitem.cpp: ../../Views/AppListItem/applistitem.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication_platform.h \
 		moc_predefs.h \
 		/home/furkan/Qt/6.7.0/gcc_64/libexec/moc
-	/home/furkan/Qt/6.7.0/gcc_64/libexec/moc $(DEFINES) --include /home/furkan/Documents/gitRepos/CustomAppStore/AppStore/build/Desktop_Qt_6_7_0-Debug/moc_predefs.h -I/home/furkan/Qt/6.7.0/gcc_64/mkspecs/linux-g++ -I/home/furkan/Documents/gitRepos/CustomAppStore/AppStore -I/home/furkan/Qt/6.7.0/gcc_64/include -I/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets -I/home/furkan/Qt/6.7.0/gcc_64/include/QtGui -I/home/furkan/Qt/6.7.0/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../Views/AppListItem/applistitem.h -o moc_applistitem.cpp
+	/home/furkan/Qt/6.7.0/gcc_64/libexec/moc $(DEFINES) --include /home/furkan/Documents/gitRepos/CustomAppStore/AppStore/build/Desktop_Qt_6_7_0-Debug/moc_predefs.h -I/home/furkan/Qt/6.7.0/gcc_64/mkspecs/linux-g++ -I/home/furkan/Documents/gitRepos/CustomAppStore/AppStore -I/home/furkan/Qt/6.7.0/gcc_64/include -I/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets -I/home/furkan/Qt/6.7.0/gcc_64/include/QtGui -I/home/furkan/Qt/6.7.0/gcc_64/include/QtNetwork -I/home/furkan/Qt/6.7.0/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../Views/AppListItem/applistitem.h -o moc_applistitem.cpp
 
 moc_appview.cpp: ../../Views/AppView/appview.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QFrame \
@@ -1224,7 +1381,7 @@ moc_appview.cpp: ../../Views/AppView/appview.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication_platform.h \
 		moc_predefs.h \
 		/home/furkan/Qt/6.7.0/gcc_64/libexec/moc
-	/home/furkan/Qt/6.7.0/gcc_64/libexec/moc $(DEFINES) --include /home/furkan/Documents/gitRepos/CustomAppStore/AppStore/build/Desktop_Qt_6_7_0-Debug/moc_predefs.h -I/home/furkan/Qt/6.7.0/gcc_64/mkspecs/linux-g++ -I/home/furkan/Documents/gitRepos/CustomAppStore/AppStore -I/home/furkan/Qt/6.7.0/gcc_64/include -I/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets -I/home/furkan/Qt/6.7.0/gcc_64/include/QtGui -I/home/furkan/Qt/6.7.0/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../Views/AppView/appview.h -o moc_appview.cpp
+	/home/furkan/Qt/6.7.0/gcc_64/libexec/moc $(DEFINES) --include /home/furkan/Documents/gitRepos/CustomAppStore/AppStore/build/Desktop_Qt_6_7_0-Debug/moc_predefs.h -I/home/furkan/Qt/6.7.0/gcc_64/mkspecs/linux-g++ -I/home/furkan/Documents/gitRepos/CustomAppStore/AppStore -I/home/furkan/Qt/6.7.0/gcc_64/include -I/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets -I/home/furkan/Qt/6.7.0/gcc_64/include/QtGui -I/home/furkan/Qt/6.7.0/gcc_64/include/QtNetwork -I/home/furkan/Qt/6.7.0/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../Views/AppView/appview.h -o moc_appview.cpp
 
 moc_dashboardcontrol.cpp: ../../Views/Dashboard/dashboardcontrol.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QFrame \
@@ -1420,7 +1577,7 @@ moc_dashboardcontrol.cpp: ../../Views/Dashboard/dashboardcontrol.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qgridlayout.h \
 		moc_predefs.h \
 		/home/furkan/Qt/6.7.0/gcc_64/libexec/moc
-	/home/furkan/Qt/6.7.0/gcc_64/libexec/moc $(DEFINES) --include /home/furkan/Documents/gitRepos/CustomAppStore/AppStore/build/Desktop_Qt_6_7_0-Debug/moc_predefs.h -I/home/furkan/Qt/6.7.0/gcc_64/mkspecs/linux-g++ -I/home/furkan/Documents/gitRepos/CustomAppStore/AppStore -I/home/furkan/Qt/6.7.0/gcc_64/include -I/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets -I/home/furkan/Qt/6.7.0/gcc_64/include/QtGui -I/home/furkan/Qt/6.7.0/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../Views/Dashboard/dashboardcontrol.h -o moc_dashboardcontrol.cpp
+	/home/furkan/Qt/6.7.0/gcc_64/libexec/moc $(DEFINES) --include /home/furkan/Documents/gitRepos/CustomAppStore/AppStore/build/Desktop_Qt_6_7_0-Debug/moc_predefs.h -I/home/furkan/Qt/6.7.0/gcc_64/mkspecs/linux-g++ -I/home/furkan/Documents/gitRepos/CustomAppStore/AppStore -I/home/furkan/Qt/6.7.0/gcc_64/include -I/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets -I/home/furkan/Qt/6.7.0/gcc_64/include/QtGui -I/home/furkan/Qt/6.7.0/gcc_64/include/QtNetwork -I/home/furkan/Qt/6.7.0/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../Views/Dashboard/dashboardcontrol.h -o moc_dashboardcontrol.cpp
 
 moc_mainwindow.cpp: ../../mainwindow.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QMainWindow \
@@ -1615,7 +1772,7 @@ moc_mainwindow.cpp: ../../mainwindow.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qabstractbutton.h \
 		moc_predefs.h \
 		/home/furkan/Qt/6.7.0/gcc_64/libexec/moc
-	/home/furkan/Qt/6.7.0/gcc_64/libexec/moc $(DEFINES) --include /home/furkan/Documents/gitRepos/CustomAppStore/AppStore/build/Desktop_Qt_6_7_0-Debug/moc_predefs.h -I/home/furkan/Qt/6.7.0/gcc_64/mkspecs/linux-g++ -I/home/furkan/Documents/gitRepos/CustomAppStore/AppStore -I/home/furkan/Qt/6.7.0/gcc_64/include -I/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets -I/home/furkan/Qt/6.7.0/gcc_64/include/QtGui -I/home/furkan/Qt/6.7.0/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../mainwindow.h -o moc_mainwindow.cpp
+	/home/furkan/Qt/6.7.0/gcc_64/libexec/moc $(DEFINES) --include /home/furkan/Documents/gitRepos/CustomAppStore/AppStore/build/Desktop_Qt_6_7_0-Debug/moc_predefs.h -I/home/furkan/Qt/6.7.0/gcc_64/mkspecs/linux-g++ -I/home/furkan/Documents/gitRepos/CustomAppStore/AppStore -I/home/furkan/Qt/6.7.0/gcc_64/include -I/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets -I/home/furkan/Qt/6.7.0/gcc_64/include/QtGui -I/home/furkan/Qt/6.7.0/gcc_64/include/QtNetwork -I/home/furkan/Qt/6.7.0/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../mainwindow.h -o moc_mainwindow.cpp
 
 moc_versionlistview.cpp: ../../Views/VersionListView/versionlistview.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QFrame \
@@ -1806,7 +1963,7 @@ moc_versionlistview.cpp: ../../Views/VersionListView/versionlistview.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication_platform.h \
 		moc_predefs.h \
 		/home/furkan/Qt/6.7.0/gcc_64/libexec/moc
-	/home/furkan/Qt/6.7.0/gcc_64/libexec/moc $(DEFINES) --include /home/furkan/Documents/gitRepos/CustomAppStore/AppStore/build/Desktop_Qt_6_7_0-Debug/moc_predefs.h -I/home/furkan/Qt/6.7.0/gcc_64/mkspecs/linux-g++ -I/home/furkan/Documents/gitRepos/CustomAppStore/AppStore -I/home/furkan/Qt/6.7.0/gcc_64/include -I/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets -I/home/furkan/Qt/6.7.0/gcc_64/include/QtGui -I/home/furkan/Qt/6.7.0/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../Views/VersionListView/versionlistview.h -o moc_versionlistview.cpp
+	/home/furkan/Qt/6.7.0/gcc_64/libexec/moc $(DEFINES) --include /home/furkan/Documents/gitRepos/CustomAppStore/AppStore/build/Desktop_Qt_6_7_0-Debug/moc_predefs.h -I/home/furkan/Qt/6.7.0/gcc_64/mkspecs/linux-g++ -I/home/furkan/Documents/gitRepos/CustomAppStore/AppStore -I/home/furkan/Qt/6.7.0/gcc_64/include -I/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets -I/home/furkan/Qt/6.7.0/gcc_64/include/QtGui -I/home/furkan/Qt/6.7.0/gcc_64/include/QtNetwork -I/home/furkan/Qt/6.7.0/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../Views/VersionListView/versionlistview.h -o moc_versionlistview.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1845,8 +2002,271 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 ####### Compile
 
+authhandler.o: ../../Models/authhandler.cpp ../../Models/authhandler.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QObject \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qobject.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qnamespace.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qglobal.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtversionchecks.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtconfiginclude.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qconfig.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtcore-config.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtconfigmacros.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtcoreexports.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qassert.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtnoop.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtypes.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtversion.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qsysinfo.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qlogging.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qflags.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcompare_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qatomic.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qyieldcpu.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qconstructormacros.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qexceptionhandling.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qforeach.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qttypetraits.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qfunctionpointer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qmalloc.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qminmax.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qnumeric.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qoverload.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qswap.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtresource.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qttranslation.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qversiontagging.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtmetamacros.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstring.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qchar.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringview.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qbytearray.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qrefcount.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qarraydata.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qpair.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qarraydatapointer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qarraydataops.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qxptype_traits.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/q20functional.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/q20memory.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qbytearrayview.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringfwd.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/q20type_traits.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringliteral.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qlatin1stringview.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qanystringview.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qutf8stringview.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringtokenizer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringconverter.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringconverter_base.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qlist.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qiterator.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringlist.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qalgorithms.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcoreevent.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qmetatype.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcompare.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcomparehelpers.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qdatastream.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qiodevicebase.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qfloat16.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qmath.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qiterable.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qmetacontainer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcontainerinfo.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtaggedpointer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qscopeguard.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qobject_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qbindingstorage.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QDebug \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qdebug.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtextstream.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qshareddata.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qmap.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qshareddata_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qset.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qhash.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QVariantMap \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qvariantmap.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QMap \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QVariant \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qvariant.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/q23utility.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QString \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QJsonObject \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qjsonobject.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qjsonvalue.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcborvalue.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qdatetime.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcalendar.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qlocale.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcborcommon.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qregularexpression.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qurl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/quuid.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qendian.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QJsonDocument \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qjsondocument.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtNetwork/QNetworkRequest \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtNetwork/qnetworkrequest.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtNetwork/qtnetworkexports.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QSharedDataPointer \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QUrl
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o authhandler.o ../../Models/authhandler.cpp
+
 modelmanager.o: ../../Models/modelmanager.cpp ../../Models/modelmanager.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o modelmanager.o ../../Models/modelmanager.cpp
+
+softwareappmodel.o: ../../Models/softwareappmodel.cpp ../../Models/softwareappmodel.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QString \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstring.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qchar.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qglobal.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtversionchecks.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtconfiginclude.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qconfig.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtcore-config.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtconfigmacros.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtcoreexports.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qassert.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtnoop.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtypes.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtversion.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtclasshelpermacros.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qsysinfo.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qlogging.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qflags.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcompare_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qatomic.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qyieldcpu.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qconstructormacros.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qdarwinhelpers.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qexceptionhandling.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qforeach.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qttypetraits.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qfunctionpointer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qmalloc.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qminmax.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qnumeric.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qoverload.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qswap.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtenvironmentvariables.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtresource.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qttranslation.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qversiontagging.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringview.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qbytearray.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qrefcount.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qnamespace.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtmetamacros.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qarraydata.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qpair.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qarraydatapointer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qarraydataops.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qxptype_traits.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/q20functional.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/q20memory.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qbytearrayview.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringfwd.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/q20type_traits.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringliteral.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qlatin1stringview.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qanystringview.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qutf8stringview.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringtokenizer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringconverter.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringconverter_base.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QDate \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qdatetime.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcalendar.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qlocale.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qvariant.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qmetatype.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcompare.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcomparehelpers.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qdatastream.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qiodevicebase.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qfloat16.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qmath.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qalgorithms.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qiterable.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qmetacontainer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcontainerinfo.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtaggedpointer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qscopeguard.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qdebug.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qtextstream.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qshareddata.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qlist.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qiterator.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringlist.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qmap.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qshareddata_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qset.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qhash.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/q23utility.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qobject.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcoreevent.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qobject_impl.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qbindingstorage.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o softwareappmodel.o ../../Models/softwareappmodel.cpp
 
 applistitem.o: ../../Views/AppListItem/applistitem.cpp ../../Views/AppListItem/applistitem.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QFrame \
@@ -2035,20 +2455,7 @@ applistitem.o: ../../Views/AppListItem/applistitem.cpp ../../Views/AppListItem/a
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qinputmethod.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qlocale.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication_platform.h \
-		ui_applistitem.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QVariant \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QApplication \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qapplication.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QHBoxLayout \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qboxlayout.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlayout.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qgridlayout.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QLabel \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlabel.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qpicture.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qtextdocument.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QSpacerItem
+		ui_applistitem.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o applistitem.o ../../Views/AppListItem/applistitem.cpp
 
 appview.o: ../../Views/AppView/appview.cpp ../../Views/AppView/appview.h \
@@ -2238,21 +2645,7 @@ appview.o: ../../Views/AppView/appview.cpp ../../Views/AppView/appview.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qinputmethod.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qlocale.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication_platform.h \
-		ui_appview.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QVariant \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QApplication \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qapplication.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QHBoxLayout \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qboxlayout.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlayout.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qgridlayout.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QLabel \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlabel.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qpicture.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qtextdocument.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QSpacerItem \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QVBoxLayout
+		ui_appview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o appview.o ../../Views/AppView/appview.cpp
 
 customstyles.o: ../../Styles/customstyles.cpp ../../Styles/customstyles.h \
@@ -2558,15 +2951,6 @@ dashboardcontrol.o: ../../Views/Dashboard/dashboardcontrol.cpp ../../Views/Dashb
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlayoutitem.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qgridlayout.h \
 		ui_dashboardcontrol.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QVariant \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QApplication \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qapplication.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QScrollArea \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qscrollarea.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QStackedWidget \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qstackedwidget.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QWidget \
 		../../Views/AppView/appview.h \
 		../../Views/VersionListView/versionlistview.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QSpacerItem
@@ -2966,28 +3350,16 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qpushbutton.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qabstractbutton.h \
 		ui_mainwindow.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QVariant \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QApplication \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qapplication.h \
+		../../Styles/customstyles.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QDebug \
+		../../Views/Dashboard/dashboardcontrol.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QFrame \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qframe.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QVBoxLayout \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qboxlayout.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlayout.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlayoutitem.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qgridlayout.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QLabel \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlabel.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qpicture.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qtextdocument.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QSpacerItem \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QStackedWidget \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qstackedwidget.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QVBoxLayout \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QWidget \
-		../../Styles/customstyles.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QDebug \
-		../../Views/Dashboard/dashboardcontrol.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/QMouseEvent \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/QCursor \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QEasingCurve \
@@ -3188,19 +3560,7 @@ versionlistview.o: ../../Views/VersionListView/versionlistview.cpp ../../Views/V
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qlocale.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication_platform.h \
 		ui_versionlistview.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QVariant \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QApplication \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qapplication.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QHBoxLayout \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qboxlayout.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlayout.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qgridlayout.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QLabel \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlabel.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qpicture.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qtextdocument.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QListWidget \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QListWidgetItem \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlistwidget.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlistview.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qabstractitemview.h \
@@ -3218,17 +3578,14 @@ versionlistview.o: ../../Views/VersionListView/versionlistview.cpp ../../Views/V
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qtabbar.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qrubberband.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QPushButton \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qpushbutton.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QSpacerItem \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QVBoxLayout \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QListWidgetItem \
 		../../Views/AppListItem/applistitem.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o versionlistview.o ../../Views/VersionListView/versionlistview.cpp
 
 qrc_resources.o: qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resources.o qrc_resources.cpp
+
+moc_authhandler.o: moc_authhandler.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_authhandler.o moc_authhandler.cpp
 
 moc_applistitem.o: moc_applistitem.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_applistitem.o moc_applistitem.cpp

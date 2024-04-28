@@ -1,3 +1,12 @@
 #include "softwareappmodel.h"
 
-SoftwareAppModel::SoftwareAppModel() {}
+SoftwareAppModel::SoftwareAppModel() {
+
+}
+
+QString SoftwareAppModel::GetDescription()
+{
+
+}
+
+
