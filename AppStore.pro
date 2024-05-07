@@ -13,6 +13,7 @@ SOURCES += \
     Models/databasehandler.cpp \
     Models/modelmanager.cpp \
     Models/softwareappmodel.cpp \
+    Models/versionitem.cpp \
     Views/AppListItem/applistitem.cpp \
     Views/AppView/appview.cpp \
     Styles/customstyles.cpp \
@@ -27,6 +28,7 @@ HEADERS += \
     Models/databasehandler.h \
     Models/modelmanager.h \
     Models/softwareappmodel.h \
+    Models/versionitem.h \
     Views/AppListItem/applistitem.h \
     Views/AppView/appview.h \
     Styles/customstyles.h \

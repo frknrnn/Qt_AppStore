@@ -20,4 +20,8 @@ extern QString MainWindow_FavoritesNoActive_StyleSheet;
 
 extern QString MainWindow_MainWindow_HoverStyle;
 
+extern QString AppListItem_Favorites_UnselectedStyle;
+extern QString AppListItem_Favorites_SelectedStyle;
+extern QString AppListItem_Favorites_HoverStyle;
+
 #endif // CUSTOMSTYLES_H

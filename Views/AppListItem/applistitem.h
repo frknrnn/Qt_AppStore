@@ -17,6 +17,7 @@ public:
 
 private:
     Ui::AppListItem *ui;
+    void AddFavorite();
 };
 
 #endif // APPLISTITEM_H

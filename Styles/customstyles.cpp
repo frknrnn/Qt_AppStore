@@ -118,3 +118,32 @@ QString  MainWindow_MainWindow_HoverStyle =     "QPushButton:hover {"
                                                  "border: none;"
                                                  "background-repeat: no-repeat;"
                                                  "}";
+
+
+QString  AppListItem_Favorites_UnselectedStyle ="QPushButton{"
+                                           "background-image: url(:/icons/Assets/icons/circle_star.png);"
+                                           "background-color: rgb(164, 73, 0);"
+                                           "border-radius:18px;"
+                                           "font: 87 12pt 'Segoe UI Black';"
+                                           "color: rgb(255, 255, 255);"
+                                           "border:none;"
+                                           "background-repeat: no-repeat;"
+                                           "background-position: center;"
+                                           "}";
+
+
+QString  AppListItem_Favorites_SelectedStyle ="QPushButton{"
+                                              "background-image: url(:/icons/Assets/icons/circle_star.png);"
+                                              "background-color: rgb(20, 164, 0);"
+                                              "border-radius:18px;"
+                                              "font: 87 12pt 'Segoe UI Black';"
+                                              "color: rgb(255, 255, 255);"
+                                              "border:none;"
+                                              "background-repeat: no-repeat;"
+                                              "background-position: center;"
+                                              "}";
+
+QString  AppListItem_Favorites_HoverStyle ="QPushButton:hover {"
+                                              "background-color: rgb(200, 69, 0);"
+                                              "border:none;"
+                                              "}";
