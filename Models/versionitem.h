@@ -11,8 +11,8 @@ public:
     explicit VersionItem(QObject *parent = nullptr);
     QString AppName;
     QString Description;
-    QDate   ReleaseDate;
-    bool    isFavorite;
+    QDate   ReleaseDate ;
+    bool    isFavorite = false;
     QString DownloadLink;
     QString Version;
 

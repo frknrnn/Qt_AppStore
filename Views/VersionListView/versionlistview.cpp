@@ -32,6 +32,7 @@ void VersionListView::Back()
 void VersionListView::AddItem()
 {
     AppListItem *temp1 = new AppListItem();
+    temp1->SetVersionItem(new VersionItem());
 
     QListWidgetItem *tempListWidget = new QListWidgetItem();
     tempListWidget->setSizeHint(tempListWidget->sizeHint());
@@ -39,6 +40,7 @@ void VersionListView::AddItem()
     ui->listWidget->setItemWidget(tempListWidget, temp1);
 
     AppListItem *temp2 = new AppListItem();
+    temp2->SetVersionItem(new VersionItem());
 
     QListWidgetItem *tempListWidget1 = new QListWidgetItem();
     tempListWidget1->setSizeHint(tempListWidget1->sizeHint());

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AppListItem</class>
+ <widget class="QFrame" name="AppListItem">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>899</width>
+    <height>45</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>600</width>
+    <height>45</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>5000</width>
+    <height>45</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Frame</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QFrame{
+border-radius:8px;
+background-color: rgb(58, 53, 53);
+}
+
+QFrame::hover{
+border-radius:8px;
+background-color: rgb(88, 83, 83);
+}
+
+</string>
+  </property>
+  <property name="lineWidth">
+   <number>0</number>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="label_index">
+     <property name="minimumSize">
+      <size>
+       <width>30</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>30</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{
+font: 700 13pt &quot;Ubuntu&quot;;
+background-color:transparent;
+qproperty-alignment: AlignCenter;
+border-radius:2px;
+background-color: rgb(255, 255, 255);
+color:rgb(0,0,0);
+}</string>
+     </property>
+     <property name="text">
+      <string>1</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_appName">
+     <property name="minimumSize">
+      <size>
+       <width>200</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{
+background-color:transparent;
+font: 500 12pt &quot;Ubuntu&quot;;
+}</string>
+     </property>
+     <property name="text">
+      <string>App Name</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_version">
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{
+background-color:transparent;
+font: 500 12pt &quot;Ubuntu&quot;;
+}</string>
+     </property>
+     <property name="text">
+      <string>v1.0.1</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_releaseDate">
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{
+background-color:transparent;
+font: 500 12pt &quot;Ubuntu&quot;;
+}</string>
+     </property>
+     <property name="text">
+      <string>14/01/1996</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>298</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton_star">
+     <property name="minimumSize">
+      <size>
+       <width>36</width>
+       <height>36</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>36</width>
+       <height>36</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+background-image: url(:/icons/Assets/icons/circle_star.png);
+background-color: rgb(164, 73, 0);
+border-radius:18px;
+font: 87 12pt &quot;Segoe UI Black&quot;;
+color: rgb(255, 255, 255);
+border:none;
+background-repeat: no-repeat;
+background-position: center;
+}
+
+QPushButton::hover{
+background-color: rgb(200, 69, 0);
+border:none;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton_info">
+     <property name="minimumSize">
+      <size>
+       <width>36</width>
+       <height>36</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>36</width>
+       <height>36</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+background-image: url(:/icons/Assets/icons/circle_info.png);
+background-color: rgb(164, 73, 0);
+border-radius:18px;
+font: 87 12pt &quot;Segoe UI Black&quot;;
+color: rgb(255, 255, 255);
+border:none;
+background-repeat: no-repeat;
+background-position: center;
+}
+
+QPushButton::hover{
+background-color: rgb(200, 69, 0);
+border:none;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton_download">
+     <property name="minimumSize">
+      <size>
+       <width>36</width>
+       <height>36</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>36</width>
+       <height>36</height>
+      </size>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+background-image: url(:/icons/Assets/icons/circle_download.png);
+background-color: rgb(164, 73, 0);
+border-radius:18px;
+font: 87 12pt &quot;Segoe UI Black&quot;;
+color: rgb(255, 255, 255);
+border:none;
+background-repeat: no-repeat;
+background-position: center;
+}
+
+QPushButton::hover{
+background-color: rgb(200, 69, 0);
+border:none;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
