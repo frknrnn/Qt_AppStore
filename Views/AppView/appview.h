@@ -19,7 +19,7 @@ public:
     void SetAppName(QString appName);
 
 signals:
-    void ShowAppVersionListSignal();
+    void ShowAppVersionListSignal(QString appName);
 
 
 protected:

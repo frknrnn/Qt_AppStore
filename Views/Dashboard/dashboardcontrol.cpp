@@ -15,7 +15,7 @@ Dashboardcontrol::Dashboardcontrol(QWidget *parent)
     VersionListLayout = new QVBoxLayout(ui->page_VersionList);
     ui->stackedWidget->setCurrentIndex(0);
     CreateApps();
-    CreateVersionListOfApp();
+
 }
 
 
@@ -25,14 +25,17 @@ Dashboardcontrol::~Dashboardcontrol()
     delete ui;
 }
 
-void Dashboardcontrol::ShowSelectedAppVersionListView()
+void Dashboardcontrol::ShowSelectedAppVersionListView(QString appName)
 {
     ui->stackedWidget->setCurrentIndex(1);
+    CreateVersionListOfApp(appName);
+
 }
 
 void Dashboardcontrol::ShowAppDashboard()
 {
     ui->stackedWidget->setCurrentIndex(0);
+
 }
 
 void Dashboardcontrol::CreateApps()
@@ -53,11 +56,16 @@ void Dashboardcontrol::CreateApps()
 
 }
 
-void Dashboardcontrol::CreateVersionListOfApp()
+void Dashboardcontrol::CreateVersionListOfApp(QString appName)
 {
-    VersionListView *sampleVersionList = new VersionListView();
-    connect(sampleVersionList,&VersionListView::BackButtonClickedSignal,this,&Dashboardcontrol::ShowAppDashboard);
-    VersionListLayout->addWidget(sampleVersionList);
+    if(ActiveVersionListView!=NULL){
+        VersionListLayout->removeWidget(ActiveVersionListView);
+    }
+
+    this->ActiveVersionListView = new VersionListView();
+    ActiveVersionListView->SetNavigatePathName(appName);
+    connect(ActiveVersionListView,&VersionListView::BackButtonClickedSignal,this,&Dashboardcontrol::ShowAppDashboard);
+    VersionListLayout->addWidget(ActiveVersionListView);
 }
 
 

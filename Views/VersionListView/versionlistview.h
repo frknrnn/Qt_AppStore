@@ -14,6 +14,7 @@ class VersionListView : public QFrame
 public:
     explicit VersionListView(QWidget *parent = nullptr);
     ~VersionListView();
+    void SetNavigatePathName(QString name);
     void Back();
     void AddItem();
 

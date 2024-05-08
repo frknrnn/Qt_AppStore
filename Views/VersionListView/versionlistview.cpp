@@ -24,6 +24,11 @@ VersionListView::~VersionListView()
     delete ui;
 }
 
+void VersionListView::SetNavigatePathName(QString name)
+{
+    ui->label_navigatePath->setText(name);
+}
+
 void VersionListView::Back()
 {
     emit BackButtonClickedSignal();

@@ -24,5 +24,5 @@ void AppView::mousePressEvent(QMouseEvent *event)
 {
     Q_UNUSED(event);
     qDebug() << "AppName:" << AppName;
-    emit ShowAppVersionListSignal();
+    emit ShowAppVersionListSignal(AppName);
 }

@@ -1316,7 +1316,7 @@ border-radius:3px;</string>
                   <widget class="QLabel" name="label_3">
                    <property name="styleSheet">
                     <string notr="true">color: rgb(200, 200, 200);
-font: 500 12pt &quot;Ubuntu&quot;;
+font: 700 11pt &quot;Sans&quot;;
 border:none;</string>
                    </property>
                    <property name="text">
