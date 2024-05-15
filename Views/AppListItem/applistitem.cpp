@@ -1,6 +1,7 @@
 #include "applistitem.h"
 #include "ui_applistitem.h"
 #include "Styles/customstyles.h"
+#include "Views/AppInfoView/appinfoview.h"
 
 AppListItem::AppListItem(QWidget *parent)
     : QFrame(parent)
@@ -8,7 +9,7 @@ AppListItem::AppListItem(QWidget *parent)
 {
     ui->setupUi(this);   
     connect(ui->pushButton_star,&QPushButton::clicked,this,&AppListItem::AddFavorite);
-
+    connect(ui->pushButton_info,&QPushButton::clicked,this,&AppListItem::showInfo);
 
 }
 
@@ -49,5 +50,11 @@ void AppListItem::UpdateFavoriteButtonUi()
     }else{
         ui->pushButton_star->setStyleSheet(buttonUnSelectedStyle+hoverStyle);
     }
+}
+
+void AppListItem::showInfo()
+{
+    AppInfoView *appInfo = new AppInfoView();
+    appInfo->show();
 }
 

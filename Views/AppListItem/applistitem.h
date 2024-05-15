@@ -22,6 +22,10 @@ private:
     void AddFavorite();
     void UpdateUi();
     void UpdateFavoriteButtonUi();
+
+private slots:
+    void showInfo();
+
 };
 
 #endif // APPLISTITEM_H
