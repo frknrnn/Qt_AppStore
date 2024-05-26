@@ -13,13 +13,16 @@ class DatabaseHandler : public QObject
     Q_OBJECT
 public:
     explicit DatabaseHandler(QObject *parent = nullptr);
-    ~DatabaseHandler();
-
-signals:
+    QNetworkReply* GET(QString url);
+    bool PUT(QString url, QJsonDocument doc);
+    bool POST(QString url,QJsonDocument doc);
+    bool PATCH(QString url,QJsonDocument doc);
+    bool DELETE(QString url);
 
 private:
     QNetworkAccessManager * m_networkManager;
-    QNetworkReply * m_networkReply;
+
+signals:
 
 };
 

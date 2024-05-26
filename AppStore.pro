@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     Models/Database/databasehandler.cpp \
+    Models/Database/databasemanager.cpp \
     Models/authhandler.cpp \
     Models/modelmanager.cpp \
     Models/softwareappmodel.cpp \
@@ -26,6 +27,7 @@ SOURCES += \
 
 HEADERS += \
     Models/Database/databasehandler.h \
+    Models/Database/databasemanager.h \
     Models/authhandler.h \   \
     Views/AppInfoView/appinfoview.h \
     Models/modelmanager.h \
