@@ -56,7 +56,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    Assets/Images/SampleSplash.jpeg
+    Assets/Images/SampleSplash.jpeg \
+    Assets/icons/settings.png
 
 RESOURCES += \
     resources.qrc

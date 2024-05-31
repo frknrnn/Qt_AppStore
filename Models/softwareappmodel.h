@@ -10,10 +10,10 @@ class SoftwareAppModel
 public:
     SoftwareAppModel();
 
-    QString *AppName;
-    QString *Version;
-    QString *ReleaseDate;
-    QString *Description;
+    QString AppName;
+    QString Version;
+    QString ReleaseDate;
+    QString Description;
 
     void SetAppName(QString appName);
     QString GetAppName();
