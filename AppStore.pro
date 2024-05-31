@@ -20,6 +20,7 @@ SOURCES += \
     Views/AppView/appview.cpp \
     Styles/customstyles.cpp \
     Views/Dashboard/dashboardcontrol.cpp \
+    Views/Settings/settingspage.cpp \
     Views/SplashScreen/splashscreen.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
     Views/AppView/appview.h \
     Styles/customstyles.h \
     Views/Dashboard/dashboardcontrol.h \
+    Views/Settings/settingspage.h \
     Views/SplashScreen/splashscreen.h \
     mainwindow.h \
     Views/VersionListView/versionlistview.h
@@ -46,6 +48,7 @@ FORMS += \
     Views/AppListItem/applistitem.ui \
     Views/AppView/appview.ui \
     Views/Dashboard/dashboardcontrol.ui \
+    Views/Settings/settingspage.ui \
     Views/SplashScreen/splashscreen.ui \
     mainwindow.ui \
     Views/VersionListView/versionlistview.ui
