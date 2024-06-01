@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "Styles/customstyles.h"
 #include "Views/Dashboard/dashboardcontrol.h"
+#include "Views/AdminPassView/adminpassview.h"
 
 #include <QMouseEvent>
 #include <QCursor>
@@ -32,6 +33,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_dashboard,&QPushButton::clicked,this,&MainWindow::ShowDashboard);
     connect(ui->pushButton_myFavorites,&QPushButton::clicked,this,&MainWindow::ShowFavorites);
     connect(ui->pushButton_mySerialKeys,&QPushButton::clicked,this,&MainWindow::ShowKeys);
+
+    connect(ui->pushButton_admin,&QPushButton::clicked,this,&MainWindow::ShowAdminPanel);
 
     QSizeGrip* windowSizeGrip = new QSizeGrip(ui->frame_size_grip);
     windowSizeGrip->setStyleSheet(MainWindow_SizeGrip_StyleSheet);
@@ -195,6 +198,12 @@ void MainWindow::ShowKeys()
     ui->pushButton_myFavorites->setStyleSheet(MainWindow_FavoritesNoActive_StyleSheet+MainWindow_MainWindow_HoverStyle);
     ui->pushButton_mySerialKeys->setStyleSheet(MainWindow_SerialActive_StyleSheet+MainWindow_MainWindow_HoverStyle);
     ui->stackedWidget_base->setCurrentIndex(2);
+}
+
+void MainWindow::ShowAdminPanel()
+{
+    AdminPassView *m_adminPassView = new AdminPassView();
+
 }
 
 

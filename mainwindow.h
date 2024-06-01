@@ -40,6 +40,7 @@ private slots:
     void ShowDashboard();
     void ShowFavorites();
     void ShowKeys();
+    void ShowAdminPanel();
 
 };
 #endif // MAINWINDOW_H

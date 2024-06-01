@@ -38,7 +38,8 @@ public:
     QFrame *frame;
     QHBoxLayout *horizontalLayout_8;
     QSpacerItem *horizontalSpacer_2;
-    QPushButton *pushButton;
+    QPushButton *pushButton_admin;
+    QPushButton *pushButton_settings;
     QFrame *frame_topBarWindowControl;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton_minimize;
@@ -134,23 +135,47 @@ public:
 
         frame = new QFrame(frame_topBar);
         frame->setObjectName("frame");
-        frame->setMinimumSize(QSize(100, 0));
-        frame->setMaximumSize(QSize(100, 16777215));
+        frame->setMinimumSize(QSize(200, 0));
+        frame->setMaximumSize(QSize(200, 16777215));
         frame->setFrameShape(QFrame::NoFrame);
         frame->setFrameShadow(QFrame::Raised);
         horizontalLayout_8 = new QHBoxLayout(frame);
-        horizontalLayout_8->setSpacing(0);
+        horizontalLayout_8->setSpacing(20);
         horizontalLayout_8->setObjectName("horizontalLayout_8");
         horizontalLayout_8->setContentsMargins(0, 0, 0, 0);
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
         horizontalLayout_8->addItem(horizontalSpacer_2);
 
-        pushButton = new QPushButton(frame);
-        pushButton->setObjectName("pushButton");
-        pushButton->setMinimumSize(QSize(60, 30));
-        pushButton->setMaximumSize(QSize(60, 30));
-        pushButton->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+        pushButton_admin = new QPushButton(frame);
+        pushButton_admin->setObjectName("pushButton_admin");
+        pushButton_admin->setMinimumSize(QSize(60, 30));
+        pushButton_admin->setMaximumSize(QSize(60, 30));
+        pushButton_admin->setCursor(QCursor(Qt::PointingHandCursor));
+        pushButton_admin->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"background-image: url(:/icons/Assets/icons/admin.png);\n"
+"background-color: rgb(60, 60, 60);\n"
+"border:none;\n"
+"border-radius:8px;\n"
+"background-repeat: no-repeat;\n"
+"background-position: center;\n"
+"}\n"
+"\n"
+"QPushButton::hover{\n"
+"background-color:rgb(200, 69, 0);\n"
+"border:none;\n"
+"background-repeat: no-repeat;\n"
+"background-position: center;\n"
+"}"));
+
+        horizontalLayout_8->addWidget(pushButton_admin);
+
+        pushButton_settings = new QPushButton(frame);
+        pushButton_settings->setObjectName("pushButton_settings");
+        pushButton_settings->setMinimumSize(QSize(60, 30));
+        pushButton_settings->setMaximumSize(QSize(60, 30));
+        pushButton_settings->setCursor(QCursor(Qt::PointingHandCursor));
+        pushButton_settings->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "background-image: url(:/icons/Assets/icons/settings.png);\n"
 "background-color: rgb(60, 60, 60);\n"
 "border:none;\n"
@@ -160,13 +185,13 @@ public:
 "}\n"
 "\n"
 "QPushButton::hover{\n"
-"background-color: rgb(200, 200, 200);\n"
+"background-color:rgb(200, 69, 0);\n"
 "border:none;\n"
 "background-repeat: no-repeat;\n"
 "background-position: center;\n"
 "}"));
 
-        horizontalLayout_8->addWidget(pushButton);
+        horizontalLayout_8->addWidget(pushButton_settings);
 
 
         horizontalLayout->addWidget(frame);
@@ -570,7 +595,8 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         label_app_icon->setText(QString());
         label->setText(QCoreApplication::translate("MainWindow", "Software Center App", nullptr));
-        pushButton->setText(QString());
+        pushButton_admin->setText(QString());
+        pushButton_settings->setText(QString());
 #if QT_CONFIG(tooltip)
         pushButton_minimize->setToolTip(QCoreApplication::translate("MainWindow", "Minimize", nullptr));
 #endif // QT_CONFIG(tooltip)
