@@ -2,7 +2,7 @@
 #define ADMINPASSVIEW_H
 
 #include <QDialog>
-
+#include "Views/AdminPanel/adminpanel.h"
 namespace Ui {
 class AdminPassView;
 }
@@ -28,6 +28,8 @@ private:
     Ui::AdminPassView *ui;
     bool m_dragging;
     QPoint m_dragStartPosition;
+    AdminPanel *m_adminPanel = new AdminPanel();
+
 
 private slots:
     void ShowAdminPanel();

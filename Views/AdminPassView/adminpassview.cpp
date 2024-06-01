@@ -1,6 +1,8 @@
 #include "adminpassview.h"
 #include "ui_adminpassview.h"
 
+#include "Views/AdminPanel/adminpanel.h"
+
 #include <QDebug>
 #include <QMouseEvent>
 #include <QTimer>
@@ -84,7 +86,8 @@ void AdminPassView::ShowAdminPanel()
 {
     QString userPass = ui->lineEdit_login_password->text();
     if(userPass == this->pass){
-        qDebug() << "true";
+        m_adminPanel->show();
+        CloseWindow();
 
     }else{
         qDebug() << "false";

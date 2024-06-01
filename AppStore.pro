@@ -15,6 +15,7 @@ SOURCES += \
     Models/modelmanager.cpp \
     Models/softwareappmodel.cpp \
     Models/versionitem.cpp \
+    Views/AdminPanel/adminpanel.cpp \
     Views/AdminPassView/adminpassview.cpp \
     Views/AppInfoView/appinfoview.cpp \
     Views/AppListItem/applistitem.cpp \
@@ -31,6 +32,7 @@ HEADERS += \
     Models/Database/databasehandler.h \
     Models/Database/databasemanager.h \
     Models/authhandler.h \   \
+    Views/AdminPanel/adminpanel.h \
     Views/AdminPassView/adminpassview.h \
     Views/AppInfoView/appinfoview.h \
     Models/modelmanager.h \
@@ -46,6 +48,7 @@ HEADERS += \
     Views/VersionListView/versionlistview.h
 
 FORMS += \
+    Views/AdminPanel/adminpanel.ui \
     Views/AdminPassView/adminpassview.ui \
     Views/AppInfoView/appinfoview.ui \
     Views/AppListItem/applistitem.ui \
