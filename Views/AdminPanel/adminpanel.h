@@ -21,6 +21,10 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event) override;
     void CloseWindow();
 
+private slots:
+    void ShowDashboard();
+    void ShowAddNewAppPanel();
+    void ShowAddNewVersionPanel();
 
 private:
     Ui::AdminPanel *ui;

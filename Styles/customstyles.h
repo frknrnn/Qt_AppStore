@@ -24,4 +24,8 @@ extern QString AppListItem_Favorites_UnselectedStyle;
 extern QString AppListItem_Favorites_SelectedStyle;
 extern QString AppListItem_Favorites_HoverStyle;
 
+extern QString AdminPanel_Active_StyleSheet;
+extern QString AdminPanel_NoActive_StyleSheet;
+
+
 #endif // CUSTOMSTYLES_H

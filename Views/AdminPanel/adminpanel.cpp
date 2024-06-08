@@ -1,5 +1,6 @@
 #include "adminpanel.h"
 #include "ui_adminpanel.h"
+#include "Styles/customstyles.h"
 
 #include <QEvent>
 #include <QMouseEvent>
@@ -13,6 +14,12 @@ AdminPanel::AdminPanel(QWidget *parent)
     ui->setupUi(this);
 
     connect(ui->pushButton_exit,&QPushButton::clicked,this,&AdminPanel::CloseWindow);
+    connect(ui->pushButton_dashboard,&QPushButton::clicked,this,&AdminPanel::ShowDashboard);
+    connect(ui->pushButton_menu_newApp,&QPushButton::clicked,this,&AdminPanel::ShowAddNewAppPanel);
+    connect(ui->pushButton_menu_newVersion,&QPushButton::clicked,this,&AdminPanel::ShowAddNewVersionPanel);
+
+    ui->stackedWidget->setCurrentIndex(0);
+
     this->setModal(true);
 
 }
@@ -66,4 +73,28 @@ void AdminPanel::CloseWindow()
     this->hide();
     delete ui;
 
+}
+
+void AdminPanel::ShowDashboard()
+{
+    ui->pushButton_dashboard->setStyleSheet(AdminPanel_Active_StyleSheet+MainWindow_MainWindow_HoverStyle);
+    ui->pushButton_menu_newApp->setStyleSheet(AdminPanel_NoActive_StyleSheet+MainWindow_MainWindow_HoverStyle);
+    ui->pushButton_menu_newVersion->setStyleSheet(AdminPanel_NoActive_StyleSheet+MainWindow_MainWindow_HoverStyle);
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void AdminPanel::ShowAddNewAppPanel()
+{
+    ui->pushButton_dashboard->setStyleSheet(AdminPanel_NoActive_StyleSheet+MainWindow_MainWindow_HoverStyle);
+    ui->pushButton_menu_newApp->setStyleSheet(AdminPanel_Active_StyleSheet+MainWindow_MainWindow_HoverStyle);
+    ui->pushButton_menu_newVersion->setStyleSheet(AdminPanel_NoActive_StyleSheet+MainWindow_MainWindow_HoverStyle);
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void AdminPanel::ShowAddNewVersionPanel()
+{
+    ui->pushButton_dashboard->setStyleSheet(AdminPanel_NoActive_StyleSheet+MainWindow_MainWindow_HoverStyle);
+    ui->pushButton_menu_newApp->setStyleSheet(AdminPanel_NoActive_StyleSheet+MainWindow_MainWindow_HoverStyle);
+    ui->pushButton_menu_newVersion->setStyleSheet(AdminPanel_Active_StyleSheet+MainWindow_MainWindow_HoverStyle);
+    ui->stackedWidget->setCurrentIndex(2);
 }

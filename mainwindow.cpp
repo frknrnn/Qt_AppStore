@@ -181,7 +181,6 @@ void MainWindow::ShowDashboard()
     ui->pushButton_mySerialKeys->setStyleSheet(MainWindow_SerialNoActive_StyleSheet+MainWindow_MainWindow_HoverStyle);
     ui->stackedWidget_base->setCurrentIndex(0);
 
-
 }
 
 void MainWindow::ShowFavorites()

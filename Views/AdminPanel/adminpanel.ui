@@ -282,12 +282,12 @@ background-color:rgb(200, 69, 0);
 </string>
            </property>
            <property name="text">
-            <string>Home</string>
+            <string>Dashboard</string>
            </property>
           </widget>
          </item>
          <item alignment="Qt::AlignHCenter">
-          <widget class="QPushButton" name="pushButton_mySerialKeys">
+          <widget class="QPushButton" name="pushButton_menu_newApp">
            <property name="minimumSize">
             <size>
              <width>150</width>
@@ -325,12 +325,12 @@ background-color:rgb(200, 69, 0);
 </string>
            </property>
            <property name="text">
-            <string>My Serials</string>
+            <string>Add New Software</string>
            </property>
           </widget>
          </item>
          <item alignment="Qt::AlignHCenter">
-          <widget class="QPushButton" name="pushButton_mySerialKeys_2">
+          <widget class="QPushButton" name="pushButton_menu_newVersion">
            <property name="minimumSize">
             <size>
              <width>150</width>
@@ -368,50 +368,7 @@ background-color:rgb(200, 69, 0);
 </string>
            </property>
            <property name="text">
-            <string>My Serials</string>
-           </property>
-          </widget>
-         </item>
-         <item alignment="Qt::AlignHCenter">
-          <widget class="QPushButton" name="pushButton_mySerialKeys_3">
-           <property name="minimumSize">
-            <size>
-             <width>150</width>
-             <height>40</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>150</width>
-             <height>40</height>
-            </size>
-           </property>
-           <property name="cursor">
-            <cursorShape>PointingHandCursor</cursorShape>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
-font: 700 11pt &quot;Ubuntu&quot;;
-background-color:transparent;
-border-radius:2px;
-color: rgb(255, 255, 255);
-border:none;
-padding: 0px 0px 0px 0px;
- background-repeat: no-repeat;
-background-position: left center;
-background-origin: content; 
-}
-
-QPushButton::hover{
-background-color:rgb(200, 69, 0);
-}
-
-
-
-</string>
-           </property>
-           <property name="text">
-            <string>My Serials</string>
+            <string>Add New Version</string>
            </property>
           </widget>
          </item>
@@ -452,8 +409,335 @@ background-color:rgb(200, 69, 0);
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
           <widget class="QStackedWidget" name="stackedWidget">
-           <widget class="QWidget" name="page"/>
-           <widget class="QWidget" name="page_2"/>
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <widget class="QWidget" name="page_newApp">
+            <layout class="QVBoxLayout" name="verticalLayout_6">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QFrame" name="frame_6">
+               <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_7">
+                <item>
+                 <widget class="QFrame" name="frame_9">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>350</height>
+                   </size>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::NoFrame</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QVBoxLayout" name="verticalLayout_8">
+                   <item>
+                    <widget class="QStackedWidget" name="stackedWidget_newSoftware">
+                     <property name="currentIndex">
+                      <number>0</number>
+                     </property>
+                     <widget class="QWidget" name="page">
+                      <layout class="QVBoxLayout" name="verticalLayout_9">
+                       <item>
+                        <widget class="QFrame" name="frame_7">
+                         <property name="styleSheet">
+                          <string notr="true">border: 2px solid rgb(164, 73, 0);
+border-radius:5px;</string>
+                         </property>
+                         <property name="frameShape">
+                          <enum>QFrame::NoFrame</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <widget class="QLineEdit" name="lineEdit_newSoftwareName">
+                          <property name="geometry">
+                           <rect>
+                            <x>30</x>
+                            <y>50</y>
+                            <width>320</width>
+                            <height>25</height>
+                           </rect>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>320</width>
+                            <height>25</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>320</width>
+                            <height>25</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QLineEdit{
+color: rgb(0,0, 0);
+font: 63 8pt &quot;Segoe UI Semibold&quot;;
+background-color: rgb(255, 255, 255);
+border-radius:5px;
+border: 2px solid rgb(100, 100, 100);
+padding-left: 10px
+}
+
+</string>
+                          </property>
+                          <property name="inputMask">
+                           <string extracomment="Software Name"/>
+                          </property>
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="frame">
+                           <bool>true</bool>
+                          </property>
+                          <property name="placeholderText">
+                           <string>Software Name</string>
+                          </property>
+                         </widget>
+                         <widget class="QLineEdit" name="lineEdit_newSoftwareSubtitle">
+                          <property name="geometry">
+                           <rect>
+                            <x>30</x>
+                            <y>80</y>
+                            <width>320</width>
+                            <height>25</height>
+                           </rect>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>320</width>
+                            <height>25</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>320</width>
+                            <height>25</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QLineEdit{
+color: rgb(0,0, 0);
+font: 63 8pt &quot;Segoe UI Semibold&quot;;
+background-color: rgb(255, 255, 255);
+border-radius:5px;
+border: 2px solid rgb(100, 100, 100);
+padding-left: 10px
+}
+
+</string>
+                          </property>
+                          <property name="inputMask">
+                           <string extracomment="Summary"/>
+                          </property>
+                          <property name="text">
+                           <string/>
+                          </property>
+                          <property name="placeholderText">
+                           <string>Subtitle</string>
+                          </property>
+                         </widget>
+                         <widget class="QLabel" name="user_description_3">
+                          <property name="geometry">
+                           <rect>
+                            <x>10</x>
+                            <y>20</y>
+                            <width>171</width>
+                            <height>21</height>
+                           </rect>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">color: rgb(200,200, 200);
+font: 75 12pt &quot;Monospac821 BT&quot;;
+border:none;</string>
+                          </property>
+                          <property name="text">
+                           <string>New Software:</string>
+                          </property>
+                         </widget>
+                         <widget class="QPushButton" name="pushButton_newSoftwareCreate">
+                          <property name="geometry">
+                           <rect>
+                            <x>30</x>
+                            <y>230</y>
+                            <width>80</width>
+                            <height>25</height>
+                           </rect>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>80</width>
+                            <height>25</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>80</width>
+                            <height>25</height>
+                           </size>
+                          </property>
+                          <property name="cursor">
+                           <cursorShape>PointingHandCursor</cursorShape>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QPushButton{
+color: rgb(50, 50, 50);
+font: 700 11pt &quot;Garuda&quot;;
+background-color: rgb(230, 230, 230);
+border-radius: 6 px;
+border:none;
+background-repeat: no-repeat;
+background-position: center;
+}
+QPushButton::hover{
+background-color: rgb(180, 255, 5);
+border-radius:6 px;
+border:none;
+background-repeat: no-repeat;
+background-position: center;
+}</string>
+                          </property>
+                          <property name="text">
+                           <string>Create</string>
+                          </property>
+                         </widget>
+                         <widget class="QTextEdit" name="textEdit_newSoftwareDescription">
+                          <property name="geometry">
+                           <rect>
+                            <x>30</x>
+                            <y>140</y>
+                            <width>320</width>
+                            <height>80</height>
+                           </rect>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>320</width>
+                            <height>80</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>320</width>
+                            <height>80</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">QTextEdit{
+color: rgb(0,0, 0);
+font: 63 8pt &quot;Segoe UI Semibold&quot;;
+background-color: rgb(255, 255, 255);
+border-radius:5px;
+border: 2px solid rgb(100, 100, 100);
+padding-left: 10px
+}</string>
+                          </property>
+                          <property name="frameShape">
+                           <enum>QFrame::NoFrame</enum>
+                          </property>
+                         </widget>
+                         <widget class="QLabel" name="user_description_4">
+                          <property name="geometry">
+                           <rect>
+                            <x>35</x>
+                            <y>115</y>
+                            <width>171</width>
+                            <height>21</height>
+                           </rect>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true">color: rgb(200,200, 200);
+font: 75 10pt &quot;Monospac821 BT&quot;;
+border:none;</string>
+                          </property>
+                          <property name="text">
+                           <string>Description:</string>
+                          </property>
+                         </widget>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                     <widget class="QWidget" name="page_2"/>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="Line" name="line_3">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QFrame" name="frame_8">
+                  <property name="frameShape">
+                   <enum>QFrame::NoFrame</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="page_dashboard">
+            <layout class="QVBoxLayout" name="verticalLayout_5">
+             <item>
+              <widget class="QFrame" name="frame_5">
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="page_newVersion">
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <item>
+              <widget class="QFrame" name="frame_4">
+               <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
           </widget>
          </item>
         </layout>

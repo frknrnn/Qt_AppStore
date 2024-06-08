@@ -147,3 +147,30 @@ QString  AppListItem_Favorites_HoverStyle ="QPushButton:hover {"
                                               "background-color: rgb(200, 69, 0);"
                                               "border:none;"
                                               "}";
+
+
+
+QString AdminPanel_Active_StyleSheet =           "QPushButton{"
+                                                "font: 700 11pt Ubuntu;"
+                                                "background-color:rgb(200, 69, 0);"
+                                                "border-radius:2px;"
+                                                "color: rgb(255, 255, 255);"
+                                                "border:none;"
+                                                "padding: 0px 10px 0px 10px;"
+                                                "background-repeat: no-repeat;"
+                                                "background-position: left center;"
+                                                "background-origin: content; "
+                                                "}";
+
+QString AdminPanel_NoActive_StyleSheet = "QPushButton{"
+                                                  "font: 700 11pt Ubuntu;"
+                                                  "background-color:transparent;"
+                                                  "border-radius:2px;"
+                                                  "color: rgb(255, 255, 255);"
+                                                  "border:none;"
+                                                  "padding: 0px 10px 0px 10px;"
+                                                  "background-repeat: no-repeat;"
+                                                  "background-position: left center;"
+                                                  "background-origin: content; "
+                                                  "}";
+
