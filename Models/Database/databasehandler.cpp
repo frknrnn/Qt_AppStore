@@ -1,7 +1,7 @@
 #include "databasehandler.h"
 #include <QJsonDocument>
 #include <QNetworkReply>
-
+#include <QJsonObject>
 
 DatabaseHandler::DatabaseHandler(QObject *parent)
     : QObject{parent}
@@ -35,6 +35,8 @@ bool DatabaseHandler::PUT(QString url, QJsonDocument jsonDoc)
         if (reply->error() == QNetworkReply::NoError) {
             // Başarılı işlem
             m_status=true;
+            qDebug() << "Status:True";
+
         }
         reply->deleteLater();
         return m_status;
@@ -49,21 +51,41 @@ bool DatabaseHandler::PUT(QString url, QJsonDocument jsonDoc)
 bool DatabaseHandler::POST(QString url, QJsonDocument doc)
 {
 
-    bool m_status=false;
-    try {
-        QNetworkRequest m_request((QUrl(url)));
-        QNetworkReply* reply = this->m_networkManager->post(m_request, doc.toJson());
+    QNetworkRequest m_request((QUrl(url)));
+    m_request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    QByteArray data = doc.toJson(); // JSON verisini byte dizisine çevirme
+
+    QNetworkReply* reply = m_networkManager->put(m_request, data);
+
+    connect(reply, &QNetworkReply::finished, this, [reply]() {
         if (reply->error() == QNetworkReply::NoError) {
-            // Başarılı işlem
-            m_status=true;
+            QByteArray response_data = reply->readAll();
+            qDebug() << "Response:" << response_data;
+        } else {
+            qDebug() << "Error:" << reply->errorString();
         }
         reply->deleteLater();
-        return m_status;
-    }
-    catch (const std::exception& e) {
-        qDebug() << "Error:" << e.what();
-        return m_status;
-    }
+    });
+
+
+    //qDebug() << doc;
+    //bool m_status=false;
+    //try {
+    //    QNetworkRequest m_request((QUrl(url)));
+    //    m_request.setHeader(QNetworkRequest::ContentTypeHeader,QString("application/json"));
+    //    QNetworkReply* reply = this->m_networkManager->post(m_request, doc.toJson());
+    //    if (reply->error() == QNetworkReply::NoError) {
+    //        // Başarılı işlem
+    //        m_status=true;
+    //        qDebug() << "Sending is success. Status:True";
+    //    }
+    //    reply->deleteLater();
+    //    return m_status;
+    //}
+    //catch (const std::exception& e) {
+    //    qDebug() << "Error:" << e.what();
+    //    return m_status;
+    //}
 
 }
 

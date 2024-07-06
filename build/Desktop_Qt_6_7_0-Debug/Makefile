@@ -882,6 +882,7 @@ qrc_resources.cpp: ../../resources.qrc \
 		../../Assets/Images/Discover.png \
 		../../Assets/Images/splashScreen.png \
 		../../Assets/Images/SampleSplash.jpeg \
+		../../Assets/Gif/Spinner@1x-0.5s-200px-200px.gif \
 		../../Assets/icons/icon_maximize.png \
 		../../Assets/icons/Star.png \
 		../../Assets/icons/Spinner@1x-0.6s-200px-200px.gif \
@@ -4413,8 +4414,57 @@ adminpanel.o: ../../Views/AdminPanel/adminpanel.cpp ../../Views/AdminPanel/admin
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qlocale.h \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qguiapplication_platform.h \
 		ui_adminpanel.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QVariant \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QApplication \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qapplication.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QFrame \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qframe.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlayout.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QLabel \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlabel.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qpicture.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qtextdocument.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QLineEdit \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qlineedit.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qtextcursor.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qtextformat.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qpen.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qtextoption.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QPushButton \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QSpacerItem \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QStackedWidget \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qstackedwidget.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QTextEdit \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qtextedit.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtWidgets/QWidget \
+		../../Styles/customstyles.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QDebug \
 		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/QEvent \
-		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/QMouseEvent
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/QMouseEvent \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/QMovie \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qmovie.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qimagereader.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtGui/qimageiohandler.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qplugin.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qpointer.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qjsonobject.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qjsonvalue.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcborvalue.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qdatetime.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcalendar.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qcborcommon.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qregularexpression.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/quuid.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/q20algorithm.h \
+		/home/furkan/Qt/6.7.0/gcc_64/include/QtCore/qfactoryinterface.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o adminpanel.o ../../Views/AdminPanel/adminpanel.cpp
 
 adminpassview.o: ../../Views/AdminPassView/adminpassview.cpp ../../Views/AdminPassView/adminpassview.h \

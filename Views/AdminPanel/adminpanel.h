@@ -14,6 +14,8 @@ class AdminPanel : public QDialog
 public:
     explicit AdminPanel(QWidget *parent = nullptr);
     ~AdminPanel();
+private:
+    QMovie* addingNewMapLoadingGif;
 
 protected:
     void mousePressEvent(QMouseEvent *event) override;
@@ -25,6 +27,7 @@ private slots:
     void ShowDashboard();
     void ShowAddNewAppPanel();
     void ShowAddNewVersionPanel();
+    void CreateNewApp();
 
 private:
     Ui::AdminPanel *ui;

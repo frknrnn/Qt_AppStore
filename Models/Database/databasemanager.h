@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QJsonDocument>
 #include "databasehandler.h"
+#include "Models/softwareappmodel.h"
+
 class DatabaseManager : public QObject
 {
     Q_OBJECT
@@ -21,6 +23,7 @@ public:
     void operator=(const DatabaseManager&) = delete;
 
     bool AddNewTestModel(QString url, QJsonDocument doc);
+    bool AddNewAppToDatabase(SoftwareAppModel* model);
     QNetworkReply* GetData(QString url);
 
 signals:

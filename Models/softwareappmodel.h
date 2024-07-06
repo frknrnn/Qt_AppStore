@@ -11,7 +11,7 @@ public:
     SoftwareAppModel();
 
     QString AppName;
-    QString Version;
+    QString Subtitle;
     QString ReleaseDate;
     QString Description;
 
@@ -21,13 +21,13 @@ public:
     void SetVersion(QString version);
     QString GetVersion();
 
-    void SetReleaseDate(QDate date);
-    QDate GetReleaseDate();
+    void SetSubtitle(QString version);
+    QString GetSubtitle();
 
     void SetDescription(QString description);
     QString GetDescription();
 
-
+    QJsonDocument toQJsonDocument();
 };
 
 #endif // SOFTWAREAPPMODEL_H

@@ -1,10 +1,12 @@
 #include "adminpanel.h"
 #include "ui_adminpanel.h"
 #include "Styles/customstyles.h"
+#include "Models/softwareappmodel.h"
+#include "Models/Database/databasemanager.h"
 
 #include <QEvent>
 #include <QMouseEvent>
-
+#include <QMovie>
 
 
 AdminPanel::AdminPanel(QWidget *parent)
@@ -18,7 +20,13 @@ AdminPanel::AdminPanel(QWidget *parent)
     connect(ui->pushButton_menu_newApp,&QPushButton::clicked,this,&AdminPanel::ShowAddNewAppPanel);
     connect(ui->pushButton_menu_newVersion,&QPushButton::clicked,this,&AdminPanel::ShowAddNewVersionPanel);
 
+    connect(ui->pushButton_newSoftwareCreate ,&QPushButton::clicked,this,&AdminPanel::CreateNewApp);
+
+    ui->stackedWidget_newSoftware->setCurrentIndex(0);
     ui->stackedWidget->setCurrentIndex(0);
+
+    addingNewMapLoadingGif = new QMovie(":/Gif/Assets/Gif/Spinner@1x-0.5s-200px-200px.gif");
+    ui->label_newAppLoadingGif->setMovie(addingNewMapLoadingGif);
 
     this->setModal(true);
 
@@ -98,3 +106,25 @@ void AdminPanel::ShowAddNewVersionPanel()
     ui->pushButton_menu_newVersion->setStyleSheet(AdminPanel_Active_StyleSheet+MainWindow_MainWindow_HoverStyle);
     ui->stackedWidget->setCurrentIndex(2);
 }
+
+void AdminPanel::CreateNewApp()
+{
+    ui->stackedWidget_newSoftware->setCurrentIndex(1);
+    addingNewMapLoadingGif->start();
+
+    SoftwareAppModel* newAppModel = new SoftwareAppModel();
+
+    newAppModel->SetAppName(ui->lineEdit_newSoftwareName->text());
+    newAppModel->SetSubtitle(ui->lineEdit_newSoftwareSubtitle->text());
+    newAppModel->SetDescription(ui->textEdit_newSoftwareDescription->toPlainText());
+
+    DatabaseManager *m_manager = DatabaseManager::getInstance();
+    m_manager->AddNewAppToDatabase(newAppModel);
+
+
+}
+
+
+
+
+

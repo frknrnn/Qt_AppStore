@@ -24,4 +24,7 @@
         <file>Assets/icons/settings.png</file>
         <file>Assets/icons/admin.png</file>
     </qresource>
+    <qresource prefix="/Gif">
+        <file>Assets/Gif/Spinner@1x-0.5s-200px-200px.gif</file>
+    </qresource>
 </RCC>

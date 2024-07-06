@@ -209,13 +209,13 @@ background-position: center;
        <widget class="QFrame" name="frame_3">
         <property name="minimumSize">
          <size>
-          <width>175</width>
+          <width>185</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>175</width>
+          <width>185</width>
           <height>16777215</height>
          </size>
         </property>
@@ -410,8 +410,22 @@ background-color:rgb(200, 69, 0);
          <item>
           <widget class="QStackedWidget" name="stackedWidget">
            <property name="currentIndex">
-            <number>0</number>
+            <number>1</number>
            </property>
+           <widget class="QWidget" name="page_dashboard">
+            <layout class="QVBoxLayout" name="verticalLayout_5">
+             <item>
+              <widget class="QFrame" name="frame_5">
+               <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
            <widget class="QWidget" name="page_newApp">
             <layout class="QVBoxLayout" name="verticalLayout_6">
              <property name="spacing">
@@ -456,7 +470,7 @@ background-color:rgb(200, 69, 0);
                    <item>
                     <widget class="QStackedWidget" name="stackedWidget_newSoftware">
                      <property name="currentIndex">
-                      <number>0</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="page">
                       <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -682,7 +696,29 @@ border:none;</string>
                        </item>
                       </layout>
                      </widget>
-                     <widget class="QWidget" name="page_2"/>
+                     <widget class="QWidget" name="page_2">
+                      <layout class="QVBoxLayout" name="verticalLayout_10">
+                       <item alignment="Qt::AlignHCenter">
+                        <widget class="QLabel" name="label_newAppLoadingGif">
+                         <property name="minimumSize">
+                          <size>
+                           <width>200</width>
+                           <height>200</height>
+                          </size>
+                         </property>
+                         <property name="maximumSize">
+                          <size>
+                           <width>200</width>
+                           <height>200</height>
+                          </size>
+                         </property>
+                         <property name="text">
+                          <string/>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
                     </widget>
                    </item>
                   </layout>
@@ -706,20 +742,6 @@ border:none;</string>
                  </widget>
                 </item>
                </layout>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QWidget" name="page_dashboard">
-            <layout class="QVBoxLayout" name="verticalLayout_5">
-             <item>
-              <widget class="QFrame" name="frame_5">
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
               </widget>
              </item>
             </layout>
