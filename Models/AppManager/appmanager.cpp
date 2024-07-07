@@ -23,6 +23,18 @@ void AppManager::GetApps()
 
 }
 
+void AppManager::UpdateAppsList(QVariantMap *map)
+{
+    this->Apps = new QList<SoftwareAppModel>();
+    QStringList keys = map->keys();
+    foreach (const QString &key, keys) {
+        SoftwareAppModel* tempApp = new SoftwareAppModel();
+        QVariantMap variantMap = map->value(key).toMap();
+        tempApp->LoadFromVariantMap(&variantMap);
+    }
+
+}
+
 
 void AppManager::AppsReader()
 {
@@ -35,7 +47,7 @@ void AppManager::AppsReader()
     if (!document.isNull()) {
         if (document.isObject()) {
             result = document.object().toVariantMap();
-            qDebug() << result;
+            UpdateAppsList(&result);
         } else {
             qDebug() << "Document is not an object";
         }

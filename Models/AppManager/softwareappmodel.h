@@ -4,6 +4,7 @@
 #include <QString>
 #include <QDate>
 #include <QList>
+#include <QVariantMap>
 #include "versionitem.h"
 
 
@@ -32,6 +33,7 @@ public:
     QString GetDescription();
 
     QJsonDocument toQJsonDocument();
+    void LoadFromVariantMap(QVariantMap* map);
 };
 
 #endif // SOFTWAREAPPMODEL_H

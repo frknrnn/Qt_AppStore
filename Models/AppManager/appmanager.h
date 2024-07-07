@@ -2,6 +2,7 @@
 #define APPMANAGER_H
 
 #include <QObject>
+#include <QVariantMap>
 #include "softwareappmodel.h"
 #include <QNetworkReply>
 #include "Models/Database/databasemanager.h"
@@ -15,6 +16,9 @@ public:
     QList<SoftwareAppModel>* Apps;
     QNetworkReply* m_AppReaderReply;
     void GetApps();
+
+private:
+    void UpdateAppsList(QVariantMap* map);
 
 
 public slots:

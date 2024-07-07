@@ -119,8 +119,18 @@ void AdminPanel::CreateNewApp()
     newAppModel->SetDescription(ui->textEdit_newSoftwareDescription->toPlainText());
 
     DatabaseManager *m_manager = DatabaseManager::getInstance();
-    m_manager->AddNewAppToDatabase(newAppModel);
+    bool status = m_manager->AddNewAppToDatabase(newAppModel);
 
+    if(status){
+        ui->lineEdit_newSoftwareName->clear();
+        ui->lineEdit_newSoftwareSubtitle->clear();
+        ui->textEdit_newSoftwareDescription->clear();
+        ui->stackedWidget_newSoftware->setCurrentIndex(0);
+        addingNewMapLoadingGif->stop();
+    }else{
+        ui->stackedWidget_newSoftware->setCurrentIndex(0);
+        addingNewMapLoadingGif->stop();
+    }
 
 }
 

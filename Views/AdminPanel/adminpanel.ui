@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
+    <width>800</width>
     <height>640</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>640</width>
+    <width>800</width>
     <height>640</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>640</width>
+    <width>800</width>
     <height>640</height>
    </size>
   </property>
@@ -209,13 +209,13 @@ background-position: center;
        <widget class="QFrame" name="frame_3">
         <property name="minimumSize">
          <size>
-          <width>185</width>
+          <width>200</width>
           <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>185</width>
+          <width>200</width>
           <height>16777215</height>
          </size>
         </property>
@@ -470,7 +470,7 @@ background-color:rgb(200, 69, 0);
                    <item>
                     <widget class="QStackedWidget" name="stackedWidget_newSoftware">
                      <property name="currentIndex">
-                      <number>1</number>
+                      <number>0</number>
                      </property>
                      <widget class="QWidget" name="page">
                       <layout class="QVBoxLayout" name="verticalLayout_9">
