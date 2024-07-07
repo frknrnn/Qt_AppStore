@@ -14,11 +14,13 @@ AppView::~AppView()
     delete ui;
 }
 
-void AppView::SetAppName(QString appName)
+void AppView::SetApp(SoftwareAppModel *app)
 {
-    AppName = appName;
-    ui->label_AppName->setText(appName);
+    this->app = app;
+    this->AppName = this->app->AppName;
+    ui->label_AppName->setText(this->AppName);
 }
+
 
 void AppView::mousePressEvent(QMouseEvent *event)
 {

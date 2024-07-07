@@ -1,5 +1,7 @@
 #include "dashboardcontrol.h"
 #include "ui_dashboardcontrol.h"
+#include "Models/modelmanager.h"
+#include "Models/AppManager/appmanager.h"
 #include "Views/AppView/appview.h"
 #include "Views/VersionListView/versionlistview.h"
 
@@ -14,7 +16,6 @@ Dashboardcontrol::Dashboardcontrol(QWidget *parent)
     DashBoardLayout = new QVBoxLayout(ui->page_AppList);
     VersionListLayout = new QVBoxLayout(ui->page_VersionList);
     ui->stackedWidget->setCurrentIndex(0);
-    CreateApps();
 
 }
 
@@ -35,25 +36,24 @@ void Dashboardcontrol::ShowSelectedAppVersionListView(QString appName)
 void Dashboardcontrol::ShowAppDashboard()
 {
     ui->stackedWidget->setCurrentIndex(0);
+    CreateApps();
 
 }
 
 void Dashboardcontrol::CreateApps()
 {
-    AppView *sampleApp1 = new AppView();
-    sampleApp1->SetAppName("Deneme1");
-    connect(sampleApp1,&AppView::ShowAppVersionListSignal,this,&Dashboardcontrol::ShowSelectedAppVersionListView);
-
-    AppView *sampleApp2 = new AppView();
-    sampleApp2->SetAppName("Deneme2");
-    connect(sampleApp2,&AppView::ShowAppVersionListSignal,this,&Dashboardcontrol::ShowSelectedAppVersionListView);
-
-    DashBoardLayout->addWidget(sampleApp1);
-    DashBoardLayout->addWidget(sampleApp2);
+    QList<SoftwareAppModel>* apps = ModelManager::getInstance()->m_AppManager->Apps;
+    if (apps) {
+        for (int i = 0; i < apps->count(); i++) {
+            AppView *tempAppView = new AppView();
+            tempAppView->SetApp(&(*apps)[i]);
+            connect(tempAppView, &AppView::ShowAppVersionListSignal, this, &Dashboardcontrol::ShowSelectedAppVersionListView);
+            DashBoardLayout->addWidget(tempAppView);
+        }
+    }
 
     QSpacerItem *verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
     DashBoardLayout->addItem(verticalSpacer);
-
 }
 
 void Dashboardcontrol::CreateVersionListOfApp(QString appName)

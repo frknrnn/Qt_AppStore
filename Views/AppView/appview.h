@@ -2,7 +2,7 @@
 #define APPVIEW_H
 
 #include <QFrame>
-
+#include "Models/AppManager/softwareappmodel.h"
 
 namespace Ui {
 class AppView;
@@ -15,8 +15,9 @@ class AppView : public QFrame
 public:
     explicit AppView(QWidget *parent = nullptr);
     ~AppView();
+    SoftwareAppModel* app;
+    void SetApp(SoftwareAppModel *app);
     QString AppName;
-    void SetAppName(QString appName);
 
 signals:
     void ShowAppVersionListSignal(QString appName);
