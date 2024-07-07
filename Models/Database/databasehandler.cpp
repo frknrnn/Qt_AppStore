@@ -27,24 +27,27 @@ QNetworkReply* DatabaseHandler::GET(QString url)
 
 bool DatabaseHandler::PUT(QString url, QJsonDocument jsonDoc)
 {
-    QNetworkRequest m_request((QUrl(url)));
-    m_request.setHeader(QNetworkRequest::ContentTypeHeader,QString("application/json"));
-    bool m_status=false;
-    try {
-        QNetworkReply *reply = m_networkManager->put(m_request, jsonDoc.toJson());
-        if (reply->error() == QNetworkReply::NoError) {
-            // Başarılı işlem
-            m_status=true;
-            qDebug() << "Status:True";
+    try{
+        QNetworkRequest m_request((QUrl(url)));
+        m_request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+        QByteArray data = jsonDoc.toJson(); // JSON verisini byte dizisine çevirme
 
-        }
-        reply->deleteLater();
-        return m_status;
+        QNetworkReply* reply = m_networkManager->put(m_request, data);
+
+        connect(reply, &QNetworkReply::finished, this, [reply]() {
+            if (reply->error() == QNetworkReply::NoError) {
+                QByteArray response_data = reply->readAll();
+                return true;
+            } else {
+                return false;
+            }
+            reply->deleteLater();
+        });
     }
     catch (const std::exception& e) {
-        qDebug() << "Error:" << e.what();
-        return m_status;
+        return false;
     }
+
 }
 
 
@@ -55,37 +58,17 @@ bool DatabaseHandler::POST(QString url, QJsonDocument doc)
     m_request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
     QByteArray data = doc.toJson(); // JSON verisini byte dizisine çevirme
 
-    QNetworkReply* reply = m_networkManager->put(m_request, data);
+    QNetworkReply* reply = m_networkManager->post(m_request, data);
 
     connect(reply, &QNetworkReply::finished, this, [reply]() {
         if (reply->error() == QNetworkReply::NoError) {
             QByteArray response_data = reply->readAll();
-            qDebug() << "Response:" << response_data;
+            return true;
         } else {
-            qDebug() << "Error:" << reply->errorString();
+            return false;
         }
         reply->deleteLater();
     });
-
-
-    //qDebug() << doc;
-    //bool m_status=false;
-    //try {
-    //    QNetworkRequest m_request((QUrl(url)));
-    //    m_request.setHeader(QNetworkRequest::ContentTypeHeader,QString("application/json"));
-    //    QNetworkReply* reply = this->m_networkManager->post(m_request, doc.toJson());
-    //    if (reply->error() == QNetworkReply::NoError) {
-    //        // Başarılı işlem
-    //        m_status=true;
-    //        qDebug() << "Sending is success. Status:True";
-    //    }
-    //    reply->deleteLater();
-    //    return m_status;
-    //}
-    //catch (const std::exception& e) {
-    //    qDebug() << "Error:" << e.what();
-    //    return m_status;
-    //}
 
 }
 
