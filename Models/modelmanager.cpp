@@ -6,6 +6,11 @@ ModelManager::ModelManager() {
 
 }
 
+void ModelManager::GetApps()
+{
+
+}
+
 ModelManager::~ModelManager() {
 
 }
