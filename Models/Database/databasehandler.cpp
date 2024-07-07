@@ -100,7 +100,6 @@ bool DatabaseHandler::DELETE(QString url)
         QNetworkRequest m_request((QUrl(url)));
         QNetworkReply* reply = this->m_networkManager->deleteResource(m_request);
         if (reply->error() == QNetworkReply::NoError) {
-            // Başarılı işlem
             m_status=true;
         }
         reply->deleteLater();

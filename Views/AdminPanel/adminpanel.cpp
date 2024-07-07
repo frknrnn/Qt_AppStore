@@ -1,7 +1,7 @@
 #include "adminpanel.h"
 #include "ui_adminpanel.h"
 #include "Styles/customstyles.h"
-#include "Models/softwareappmodel.h"
+#include "Models/AppManager/softwareappmodel.h"
 #include "Models/Database/databasemanager.h"
 
 #include <QEvent>

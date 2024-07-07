@@ -13,8 +13,8 @@ SOURCES += \
     Models/Database/databasemanager.cpp \
     Models/authhandler.cpp \
     Models/modelmanager.cpp \
-    Models/softwareappmodel.cpp \
-    Models/versionitem.cpp \
+    Models/AppManager/softwareappmodel.cpp \
+    Models/AppManager/versionitem.cpp \
     Views/AdminPanel/adminpanel.cpp \
     Views/AdminPassView/adminpassview.cpp \
     Views/AppInfoView/appinfoview.cpp \
@@ -36,8 +36,8 @@ HEADERS += \
     Views/AdminPassView/adminpassview.h \
     Views/AppInfoView/appinfoview.h \
     Models/modelmanager.h \
-    Models/softwareappmodel.h \
-    Models/versionitem.h \
+    Models/AppManager/softwareappmodel.h \
+    Models/AppManager/versionitem.h \
     Views/AppListItem/applistitem.h \
     Views/AppView/appview.h \
     Styles/customstyles.h \

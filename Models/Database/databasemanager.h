@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QJsonDocument>
 #include "databasehandler.h"
-#include "Models/softwareappmodel.h"
+#include "Models/AppManager/softwareappmodel.h"
 
 class DatabaseManager : public QObject
 {
@@ -24,7 +24,9 @@ public:
 
     bool AddNewTestModel(QString url, QJsonDocument doc);
     bool AddNewAppToDatabase(SoftwareAppModel* model);
+    bool IsAppAlreadyExits(SoftwareAppModel* model);
     QNetworkReply* GetData(QString url);
+    QNetworkReply *GetApps();
 
 signals:
 };

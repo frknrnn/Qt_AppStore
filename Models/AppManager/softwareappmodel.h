@@ -3,6 +3,8 @@
 
 #include <QString>
 #include <QDate>
+#include <QList>
+#include "versionitem.h"
 
 
 class SoftwareAppModel
@@ -15,10 +17,12 @@ public:
     QString ReleaseDate;
     QString Description;
 
+    QList<VersionItem> Versions;
+
     void SetAppName(QString appName);
     QString GetAppName();
 
-    void SetVersion(QString version);
+    void AddVersion(QString version);
     QString GetVersion();
 
     void SetSubtitle(QString version);

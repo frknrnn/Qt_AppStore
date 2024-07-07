@@ -25,8 +25,13 @@ bool DatabaseManager::AddNewAppToDatabase(SoftwareAppModel* model)
     QString baseUrl = "https://qtapptest-3edb8-default-rtdb.firebaseio.com/Apps/";
     baseUrl = baseUrl+model->GetAppName()+".json";
     qDebug() << baseUrl;
-    this->m_databaseHandler->POST(baseUrl,model->toQJsonDocument());
+    this->m_databaseHandler->PUT(baseUrl,model->toQJsonDocument());
     return true;
+}
+
+bool DatabaseManager::IsAppAlreadyExits(SoftwareAppModel *model)
+{
+
 }
 
 QNetworkReply *DatabaseManager::GetData(QString url)
@@ -35,6 +40,12 @@ QNetworkReply *DatabaseManager::GetData(QString url)
     return rply;
 }
 
+QNetworkReply *DatabaseManager::GetApps()
+{
+    QString baseUrl = "https://qtapptest-3edb8-default-rtdb.firebaseio.com/Apps.json";
+    QNetworkReply *rply = this->m_databaseHandler->GET(baseUrl);
+    return rply;
+}
 
 DatabaseManager* DatabaseManager::getInstance() {
     if (!instance) {
@@ -42,3 +53,6 @@ DatabaseManager* DatabaseManager::getInstance() {
     }
     return instance;
 }
+
+
+
