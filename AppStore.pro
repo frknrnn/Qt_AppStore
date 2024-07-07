@@ -9,6 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Models/AppManager/appmanager.cpp \
     Models/Database/databasehandler.cpp \
     Models/Database/databasemanager.cpp \
     Models/authhandler.cpp \
@@ -29,6 +30,7 @@ SOURCES += \
     Views/VersionListView/versionlistview.cpp
 
 HEADERS += \
+    Models/AppManager/appmanager.h \
     Models/Database/databasehandler.h \
     Models/Database/databasemanager.h \
     Models/authhandler.h \   \
